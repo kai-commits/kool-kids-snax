@@ -13,3 +13,4 @@
 ## RESTAURANT STORIES
 - As the restaurant, I want to receive an SMS notification when an order has been placed.
 - As the restaurant, I can tell the customer the time it will take for the order to be fulfilled through the APP.
+
