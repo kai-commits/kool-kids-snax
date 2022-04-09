@@ -2,6 +2,8 @@
   Stylizes global header
 */
 
+@import "variables";
+
 nav {
   display: flex;
   flex-direction: row;
@@ -9,10 +11,9 @@ nav {
   .logo {
     font-family: $primary-feature-font;
     font-weight: 600;
-    border: 5px solid red;
 
     .logo-p1 {
-      border: 5px black;
+      background: #547980;
     }
   }
 }
