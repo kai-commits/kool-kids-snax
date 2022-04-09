@@ -57,7 +57,7 @@ app.use("/api/widgets", widgetsRoutes(db));
 
 app.get("/", (req, res) => {
   if (req.session.user_id.admin) {
-    res.render("admin");
+    return res.render("admin");
   }
   res.render("customer");
 });
