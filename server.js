@@ -7,6 +7,7 @@ const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
+const cookieSession = require("cookie-session");
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -31,6 +32,12 @@ app.use(
   })
 );
 
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key'],
+  maxAge: 24 * 60 * 60 * 1000
+}));
+
 app.use(express.static("public"));
 
 // Separated Routes for each Resource
@@ -49,7 +56,10 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  res.render("customer"); // index
+  if (req.session.user_id.admin) {
+    res.render("admin");
+  }
+  res.render("customer");
 });
 
 app.listen(PORT, () => {
