@@ -1,0 +1,12 @@
+DROP TABLE IF EXISTS orders CASCADE;
+
+CREATE TABLE orders (
+  id SERIAL PRIMARY KEY NOT NULL,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  status_id INTEGER REFERENCES statuses(id) ON DELETE CASCADE,
+  estimated_time_id INTEGER REFERENCES estimated_times(id) ON DELETE CASCADE,
+  created_at TIMESTAMP NOT NULL,
+  completed_at TIMESTAMP,
+  active BOOLEAN NOT NULL DEFAULT true,
+  price INTEGER NOT NULL
+);
