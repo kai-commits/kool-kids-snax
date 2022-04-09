@@ -27,7 +27,7 @@ module.exports = (db) => {
     .then(data => {
       const user = data.rows[0];
       req.session.user = user;
-      console.log('test', req.params);
+
       res.redirect('/');
     })
     .catch(err => {
