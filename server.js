@@ -28,7 +28,7 @@ app.use(
   sassMiddleware({
     source: __dirname + "/styles",
     destination: __dirname + "/public/styles",
-    isSass: false, // false => scss, true => sass
+    isSass: false // false => scss, true => sass
   })
 );
 
@@ -57,7 +57,7 @@ app.use("/api/widgets", widgetsRoutes(db));
 
 app.get("/", (req, res) => {
   if (req.session.user_id.admin) {
-    res.render("admin");
+    return res.render("admin");
   }
   res.render("customer");
 });
