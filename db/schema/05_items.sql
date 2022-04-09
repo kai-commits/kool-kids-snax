@@ -1,3 +1,5 @@
+-- Menu items
+
 DROP TABLE IF EXISTS items CASCADE;
 
 CREATE TABLE items (

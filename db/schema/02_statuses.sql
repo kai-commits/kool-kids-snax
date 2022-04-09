@@ -1,3 +1,5 @@
+-- Statuses of order
+
 DROP TABLE IF EXISTS statuses CASCADE;
 
 CREATE TABLE statuses (

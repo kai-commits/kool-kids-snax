@@ -1,3 +1,5 @@
+-- Order lines for each order
+
 DROP TABLE IF EXISTS order_details CASCADE;
 CREATE TABLE order_details (
   id SERIAL PRIMARY KEY NOT NULL,
