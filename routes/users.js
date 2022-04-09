@@ -26,7 +26,7 @@ module.exports = (db) => {
     db.query(`SELECT * FROM users WHERE id = ${req.params.id};`)
     .then(data => {
       const user = data.rows[0];
-      req.session.user_id = user;
+      req.session.user = user;
       console.log('test', req.params);
       res.redirect('/');
     })
