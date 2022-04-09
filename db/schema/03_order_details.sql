@@ -5,3 +5,4 @@ CREATE TABLE order_detail (
   item_id INTEGER REFERENCES items(id) ON DELETE CASCADE,
   quantity INTEGER NOT NULL DEFAULT 0
 );
+
