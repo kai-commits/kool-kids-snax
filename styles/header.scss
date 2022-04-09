@@ -6,6 +6,7 @@
 
 nav {
   display: flex;
+  justify-content: space-between;
   flex-direction: row;
 
   .logo {
@@ -16,4 +17,10 @@ nav {
       background: #547980;
     }
   }
+
+  .nav2 {
+    font-family: $primary-text-font;
+    color: $primary-text-color;
+  }
+
 }
