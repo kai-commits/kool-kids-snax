@@ -1,9 +1,9 @@
 const loadOrders = () => {
-  $.ajax('/all', {
+  $.ajax('/orders', {
     method: 'GET'
   })
   .then((res) => {
-    renderOrders(res.all);
+    renderOrders(res.orders);
   });
 };
 
