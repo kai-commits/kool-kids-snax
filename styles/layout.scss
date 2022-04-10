@@ -10,7 +10,7 @@ html {
 
 /* Stylizes menu-content */
 
-.menu-content {
+.content {
   display: flex;
   flex-direction: column;
 
@@ -21,10 +21,37 @@ html {
     font-size: 1.7em;
   }
 
+  h3 {
+    margin-top: 2em;
+    display: flex;
+    font-weight: 400;
+    font-size: 1.2em;
+  }
+
 }
 
 .menu-items {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.orders-container {
+  display: flex;
+  flex-direction: column;
+
+  article.order-container {
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    width: 100%;
+    border-bottom: 0.1em solid $primary-text-color;
+
+    .order-card {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: inherit;
+    }
+  }
 }
