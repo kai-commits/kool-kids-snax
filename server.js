@@ -62,7 +62,9 @@ app.use("/orders", ordersRoutes(db));
 
 app.get("/", (req, res) => {
   const username = req.session.user.name;
-  const templateVars = { username };
+  const admin = req.session.user.admin;
+
+  const templateVars = { username, admin };
 
   if (req.session.user.admin) {
     return res.render("admin", templateVars);
