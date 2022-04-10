@@ -26,7 +26,7 @@ nav {
       position: relative;
       width: 90px; /* absolute size */
       height: 40px;
-      transform: rotate(-2deg);
+      transform: rotate(-5deg);
       padding:0.1em;
     }
 
@@ -38,10 +38,11 @@ nav {
       content: '';
       position: absolute;
       border: 1px solid $primary-text-color;
-      bottom: 4px;
-      left: 4px;
-      width: calc(100% - 1px);
-      height: calc(100% - 1px);
+      top: 0.1em;
+      left: 2px;
+      transform: rotate(-3deg);
+      width: calc(100% + 1px);
+      height: calc(100% + 1px);
     }
 
   }
