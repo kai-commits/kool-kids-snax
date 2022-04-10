@@ -20,3 +20,39 @@ body {
   font-weight: 400;
   min-height: 100vh;
 }
+
+.scroll-up {
+  bottom: 2em;
+  right: 0;
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  z-index: 1;
+}
+
+/* Creates icon for scroll */
+#arrow-scroll {
+  padding: 0.85em 0 0 0.98em; /* Centers arrow within circle */
+  color: $primary-bg-color;
+  font-size: 30px;
+  border-radius: 50%;
+  background: $feature-color;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+}
+
+#arrow-scroll:hover {
+  background-color: $hover-color;
+}
+
+
+/* Styling for links */
+
+a:visited {
+  color: $primary-text-color;
+}
+
+a:hover {
+  color: $hover-color;
+}
