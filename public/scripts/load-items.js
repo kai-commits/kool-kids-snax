@@ -20,7 +20,9 @@ const createItemElement = (itemData) => { // Dynamically creates new items from 
 
   return $(`
   <div class="item-container">
-  <img class="item-img" src="${itemData.url_thumb_photo}">
+  <div class="item-img-container">
+    <img class="item-img" src="${itemData.url_thumb_photo}">
+  </div>
 
   <div class="item-header">
     <div class="item-title">
