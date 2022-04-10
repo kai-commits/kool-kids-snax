@@ -1,6 +1,28 @@
 // See: https://sass-lang.com/
 
+@import "variables";
+
 body,
 html {
-  margin: 0;
+
+  margin: 2em 4em 0 4em;
+}
+
+/* Stylizes menu-content */
+
+.menu-content {
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    display: flex;
+    font-weight: 400;
+  }
+
+}
+
+.menu-items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

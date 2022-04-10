@@ -28,7 +28,7 @@ app.use(
   sassMiddleware({
     source: __dirname + "/styles",
     destination: __dirname + "/public/styles",
-    isSass: false, // false => scss, true => sass
+    isSass: false // false => scss, true => sass
   })
 );
 
@@ -61,10 +61,14 @@ app.use("/orders", ordersRoutes(db));
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  if (req.session.user_id.admin) {
-    return res.render("admin");
+  const username = req.session.user.name;
+  const templateVars = { username };
+
+  if (req.session.user.admin) {
+    return res.render("admin", templateVars);
   }
-  res.render("customer");
+  res.render("customer", templateVars);
+
 });
 
 app.listen(PORT, () => {

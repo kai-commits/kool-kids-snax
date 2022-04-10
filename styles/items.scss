@@ -1,0 +1,54 @@
+/* Stylizes individual item */
+
+@import "variables";
+
+.item-container {
+  margin: 0 3em 2em 0;
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  width: 100%;
+
+  .item-img-container {
+    width: 13em;
+    height: 13em;
+
+    .item-img {
+      max-width: inherit;
+      max-height: inherit;
+      height: inherit;
+      width: inherit;
+      object-fit: cover;
+    }
+  }
+
+
+  .item-header {
+    margin: 0.5em 0 0 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    h3 {
+      display: flex;
+      font-weight: 400;
+      font-size: 1em;
+    }
+
+  }
+}
+
+.item-description {
+  color: $desc-text-color;
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+.item-title {
+  display: flex;
+  flex-direction: row;
+
+  .menu-item-add {
+    margin-right: 0.3em;
+  }
+}

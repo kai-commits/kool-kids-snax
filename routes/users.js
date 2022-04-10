@@ -26,8 +26,8 @@ module.exports = (db) => {
     db.query(`SELECT * FROM users WHERE id = ${req.params.id};`)
     .then(data => {
       const user = data.rows[0];
-      req.session.user_id = user;
-      console.log('cookie details:', req.session);
+      req.session.user = user;
+
       res.redirect('/');
     })
     .catch(err => {

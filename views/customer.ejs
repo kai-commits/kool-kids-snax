@@ -2,12 +2,30 @@
 <html lang="en">
 
 <head>
-  <title>Home Page</title>
+  <title>Kool-kids Snax</title>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+
+  <!-- SCSS stylesheets -->
+  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/items.css" type="text/css" />
+
+
+
+  <!-- Custom Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&family=Inter:wght@300;400;600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/load-items.js"></script>
@@ -15,7 +33,24 @@
 </head>
 
 <body>
-  <h1>Hello world 🥔</h1>
+
+  <%- include('partials/_header') %>
+
+  <!-- Main menu content begin here -->
+
+  <main class="menu-content">
+
+    <div class="title-menu">
+      <h2>Menu:</h2>
+    </div>
+
+    <section class="menu-items">
+
+      <!-- Populate menu items -->
+
+    </section>
+  </main>
+
 </body>
 
 </html>
