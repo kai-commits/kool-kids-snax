@@ -11,10 +11,39 @@ nav {
   .logo {
     font-family: $primary-feature-font;
     font-weight: 600;
+    font-size: 3em;
+
 
     .logo-p1 {
-      background: $feature-color;
+      background-color: $feature-color;
+      box-sizing: border-box;
+      color: $primary-bg-color;
+      font-family: $primary-feature-font, sans-serif;
+      font-size: 0.8em;
+      font-weight: 700;
+      line-height: 1.75rem;
+      text-align: center;
+      position: relative;
+      width: 90px; /* absolute size */
+      height: 40px;
+      transform: rotate(-2deg);
+      padding:0.1em;
     }
+
+    .logo-p1:focus {
+      outline: 0;
+    }
+
+    .logo-p1:after {
+      content: '';
+      position: absolute;
+      border: 1px solid $primary-text-color;
+      bottom: 4px;
+      left: 4px;
+      width: calc(100% - 1px);
+      height: calc(100% - 1px);
+    }
+
   }
 
   .nav2 {
@@ -22,4 +51,7 @@ nav {
     color: $primary-text-color;
   }
 
+
+
 }
+
