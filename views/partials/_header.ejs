@@ -12,10 +12,12 @@
           <%= username %>
         </span>
 
-        <span class="user-items-cart">
+        <% if (!admin) { %>
+          <span class="user-items-cart">
 
-          <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-        </span>
+            <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+          </span>
+        <% } %>
       </div>
 
       <div class="nav-bar-menu">
