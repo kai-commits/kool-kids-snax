@@ -26,7 +26,7 @@ const createItemElement = (itemData) => { // Dynamically creates new items from 
 
   <div class="item-header">
     <div class="item-title">
-      <span class="menu-item-add"><i class="fa-solid fa-circle-plus"></i></span>
+      <a href="#"><span class="menu-item-add"><i class="fa-solid fa-circle-plus"></i></span></a>
       <div class="item-name">${itemData.name}</div>
     </div>
     <div class="item-price">
