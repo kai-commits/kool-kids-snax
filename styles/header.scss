@@ -7,14 +7,13 @@
 nav {
   display: flex;
   justify-content: space-between;
-  flex-direction: row;
 
   .logo {
     font-family: $primary-feature-font;
     font-weight: 600;
 
     .logo-p1 {
-      background: #547980;
+      background: $feature-color;
     }
   }
 
