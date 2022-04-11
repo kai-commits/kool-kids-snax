@@ -2,7 +2,7 @@ const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
-  router.get("/", (req, res) => {
+  router.get('/', (req, res) => {
     db.query(`SELECT * FROM orders;`)
       .then(data => {
         const orders = data.rows;
@@ -29,8 +29,21 @@ module.exports = (db) => {
     })
     .catch(err => {
       res.status(500).json({ error: err.message });
+    });
+  });
+
+  router.post('/cart', (req, res) => {
+    db.query(`
+    `)
+    .then(data => {
+      const cart_details = data.rows;
+      console.log(req.body);
     })
-  })
+    .catch(err => {
+      res.status(500).json({ error: err.message });
+    });
+    res.redirect('/users');
+  });
 
   return router;
 };

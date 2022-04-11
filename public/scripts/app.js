@@ -4,7 +4,17 @@
 
 $(() => {
   loadItems();
-  loadOrders();
+
+  $('.cart-checkout-button').on('click', function() {
+    alert('helo');
+    $.ajax('/orders/cart', {
+      method: 'POST',
+      data: $(this).serialize()
+    })
+    .then(() => {
+
+    });
+  });
 });
 
 let checkoutCart = [];
@@ -42,7 +52,6 @@ const addItemCartDetail = () => {
 
   $('.menu-item-add').on('click', function() {
     // let checkoutCart = [];
-
     const cart_detail = {};
     const name = (this.nextElementSibling.innerText);
     const price = (this.parentElement.nextElementSibling.innerText);
