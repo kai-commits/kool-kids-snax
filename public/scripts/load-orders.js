@@ -19,15 +19,15 @@ const createOrderDetailsElement = (orderDetail) => {
   console.log('orderDetail', orderDetail);
 
   return `
-    <ul>${orderDetail.name}</ul>
+    <li>${orderDetail.name}</li>
   `
 }
 
 const renderOrderDetails = (orderDetailsData) => {
-  console.log(orderDetailsData);
 
   for (const orderDetail of orderDetailsData) {
-    $('.order-details').append(createOrderDetailsElement(orderDetail));
+    console.log('inside loop', orderDetail);
+    $('.details-list').append(createOrderDetailsElement(orderDetail));
   }
 
 };
@@ -50,7 +50,7 @@ const createOrderElement = (orderData) => {
 
       <div class="order-card">
         <div class="order-details">
-          <ul>
+          <ul class="details-list">
             ${loadOrderDetails(orderData.id)}
           </ul>
         </div>
