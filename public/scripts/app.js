@@ -4,6 +4,7 @@
 
 $(() => {
   loadItems();
+  loadOrders();
 });
 
 let checkoutCart = [];
