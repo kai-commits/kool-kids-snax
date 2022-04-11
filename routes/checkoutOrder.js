@@ -8,8 +8,10 @@ module.exports = (db) => {
   });
 
   router.post('/submit', (req, res) => {
-    db.query(`
-    `)
+    db.query(''
+    // INSERT INTO orders(user_id, status_id, estimated_time_id, created_at, completed_at, active, price)
+    // VALUES (${req.body.user_id}, 1, 1, ${Now()}, ${null}, ${true}, ${req.body.total_price})
+    )
     .then(data => {
       const cart_details = data.rows;
       console.log(req.body);

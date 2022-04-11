@@ -1,1 +1,1 @@
-INSERT INTO statuses (name) VALUES ('Received'), ('In-Progress'), ('Ready');
+INSERT INTO statuses (name) VALUES ('Pending'), ('Received'), ('In-Progress'), ('Ready');

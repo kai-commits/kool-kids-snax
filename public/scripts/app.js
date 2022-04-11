@@ -8,7 +8,7 @@ $(() => {
   $('.cart-checkout-button').on('click', function() {
     $.ajax('/checkoutOrder/submit', {
       method: 'POST',
-      data: {...checkoutCart}
+      data: checkoutCart
     })
     .then(() => {
 
@@ -16,12 +16,17 @@ $(() => {
   });
 });
 
-let checkoutCart = [];
+let cartItemNames = [];
+let cartItemPrices = [];
+let totalCartPrice = cartItemPrices.reduce((a, b) => a + b, 0);
+let checkoutCart = {
+  user_id: $('.user').attr('id'),
+  items: cartItemNames,
+  total_price: totalCartPrice
+};
 
 const renderCartItems = (cartItemDetail) => {
   $('.cart-details').append(createCartItemDetail(cartItemDetail));
-  checkoutCart.push(cartItemDetail);
-
 };
 
 const createCartItemDetail = (cartItem) => {
@@ -54,8 +59,11 @@ const addItemCartDetail = () => {
     const cart_detail = {};
     const name = (this.nextElementSibling.innerText);
     const price = (this.parentElement.nextElementSibling.innerText);
+    // cart_detail.user_id = $('.user').attr('id');
     cart_detail.name = name;
     cart_detail.price = price;
+    cartItemNames.push(name);
+    cartItemPrices.push(price);
 
     // checkoutCart.push(cart_detail);
 
