@@ -4,15 +4,21 @@
 
 body,
 html {
-
   margin: 2em 4em 0 4em;
 }
 
 /* Stylizes menu-content */
 
+main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
 .content {
   display: flex;
   flex-direction: column;
+  max-width: 800px;
 
   h2 {
     margin-top: 2em;
@@ -28,12 +34,6 @@ html {
     font-size: 1.2em;
   }
 
-}
-
-.menu-items {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
 }
 
 .orders-container {
