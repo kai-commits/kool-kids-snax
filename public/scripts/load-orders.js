@@ -7,6 +7,31 @@ const loadOrders = () => {
   });
 };
 
+const loadOrderDetails = (id) => {
+  $.get(`/orders/${id}`)
+    .then(res => {
+      console.log('something worked')
+      renderOrderDetails(res.order_details);
+    })
+};
+
+const createOrderDetailsElement = (orderDetail) => {
+  console.log('orderDetail', orderDetail);
+
+  return `
+    <ul>${orderDetail.name}</ul>
+  `
+}
+
+const renderOrderDetails = (orderDetailsData) => {
+  console.log(orderDetailsData);
+
+  for (const orderDetail of orderDetailsData) {
+    $('.order-details').append(createOrderDetailsElement(orderDetail));
+  }
+
+};
+
 const renderOrders = (ordersDatabase) => {
   for (const order of ordersDatabase) {
     $('.orders-container').append(createOrderElement(order));
@@ -14,51 +39,48 @@ const renderOrders = (ordersDatabase) => {
 };
 
 const createOrderElement = (orderData) => {
-  console.log(orderData);
+  console.log('orderData', orderData);
   return $(`
-  <article class="order-container">
-  <div class="order-header">
-    <div class="order-id">
-      <h3>Order#: ${orderData.id}</h3>
-    </div>
-  </div>
-
-  <div class="order-card">
-    <div class="order-details">
-      <ul>
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-      </ul>
-      <div class="order-price">Total_price</div>
-    </div>
-
-    <div class="order-edit">
-      <div class="order-status">
-        <label for="order-status">Order Status:</label>
-        <select name="order-status" id="order-status">
-          <option value="pending">Pending</option>
-          <option value="received">Received</option>
-          <option value="ready">Ready for Pick up</option>
-          <option value="complete">Fulfilled</option>
-        </select>
+    <article class="order-container">
+      <div class="order-header">
+        <div class="order-id">
+          <h3>Order#: ${orderData.id}</h3>
+        </div>
       </div>
 
-      <div class="order-time">
-        <label for="order-time">Estimated Time:</label>
-        <select name="order-time">
-          <option value="fifteen">15 minutes</option>
-          <option value="twenty-five">25 minutes</option>
-          <option value="forty-five">45 minutes</option>
-          <option value="sixty">60 minutes</option>
-        </select>
+      <div class="order-card">
+        <div class="order-details">
+          <ul>
+            ${loadOrderDetails(orderData.id)}
+          </ul>
+        </div>
+
+        <div class="order-edit">
+          <div class="order-status">
+            <label for="order-status">Order Status:</label>
+            <select name="order-status" id="order-status">
+              <option value="pending">Pending</option>
+              <option value="received">Received</option>
+              <option value="ready">Ready for Pick up</option>
+              <option value="complete">Fulfilled</option>
+            </select>
+          </div>
+
+          <div class="order-time">
+            <label for="order-time">Estimated Time:</label>
+            <select name="order-time">
+              <option value="fifteen">15 minutes</option>
+              <option value="twenty-five">25 minutes</option>
+              <option value="forty-five">45 minutes</option>
+              <option value="sixty">60 minutes</option>
+            </select>
+          </div>
+
+        </div>
+
       </div>
 
-    </div>
 
-  </div>
-
-
-</article>
+    </article>
   `);
 };
