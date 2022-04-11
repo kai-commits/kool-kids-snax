@@ -10,13 +10,13 @@ const loadOrders = () => {
 const loadOrderDetails = (id) => {
   $.get(`/orders/${id}`)
     .then(res => {
-      console.log('something worked')
+      // console.log(`${id}: `, res.order_details);
       renderOrderDetails(res.order_details);
     })
 };
 
 const createOrderDetailsElement = (orderDetail) => {
-  console.log('orderDetail', orderDetail);
+  // console.log('orderDetail', orderDetail);
 
   return `
     <li>${orderDetail.name}</li>
@@ -26,8 +26,8 @@ const createOrderDetailsElement = (orderDetail) => {
 const renderOrderDetails = (orderDetailsData) => {
 
   for (const orderDetail of orderDetailsData) {
-    console.log('inside loop', orderDetail);
-    $('.details-list').append(createOrderDetailsElement(orderDetail));
+    // console.log('inside loop', orderDetail);
+    $(`#${orderDetail.order_id}`).append(createOrderDetailsElement(orderDetail));
   }
 
 };
@@ -35,11 +35,13 @@ const renderOrderDetails = (orderDetailsData) => {
 const renderOrders = (ordersDatabase) => {
   for (const order of ordersDatabase) {
     $('.orders-container').append(createOrderElement(order));
+    loadOrderDetails(order.id);
+    // console.log(order.id);
   }
 };
 
 const createOrderElement = (orderData) => {
-  console.log('orderData', orderData);
+  // console.log('orderData', orderData.id);
   return $(`
     <article class="order-container">
       <div class="order-header">
@@ -50,8 +52,7 @@ const createOrderElement = (orderData) => {
 
       <div class="order-card">
         <div class="order-details">
-          <ul class="details-list">
-            ${loadOrderDetails(orderData.id)}
+          <ul class="details-list" id="${orderData.id}">
           </ul>
         </div>
 
