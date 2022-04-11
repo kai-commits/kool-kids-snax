@@ -6,6 +6,11 @@ $(() => {
   loadItems();
 
   $('.cart-checkout-button').on('click', function() {
+    let checkoutCart = {
+      user_id: $('.user').attr('id'),
+      items: cartItemNames,
+      total_price: getTotalCartPrice(cartItemPrices)
+    };
     $.ajax('/checkoutOrder/submit', {
       method: 'POST',
       data: checkoutCart
@@ -18,12 +23,14 @@ $(() => {
 
 let cartItemNames = [];
 let cartItemPrices = [];
-let totalCartPrice = cartItemPrices.reduce((a, b) => a + b, 0);
-let checkoutCart = {
-  user_id: $('.user').attr('id'),
-  items: cartItemNames,
-  total_price: totalCartPrice
-};
+
+const getTotalCartPrice = (cartItemPrices) => {
+  return cartItemPrices.map(el => {
+    return Number(el.replace('$', '')) * 100;
+  }).reduce((a, b) => a + b, 0);
+}
+
+
 
 const renderCartItems = (cartItemDetail) => {
   $('.cart-details').append(createCartItemDetail(cartItemDetail));
