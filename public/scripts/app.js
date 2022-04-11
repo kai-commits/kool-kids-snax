@@ -6,10 +6,9 @@ $(() => {
   loadItems();
 
   $('.cart-checkout-button').on('click', function() {
-    alert('helo');
     $.ajax('/orders/cart', {
       method: 'POST',
-      data: $(this).serialize()
+      data: {...checkoutCart}
     })
     .then(() => {
 

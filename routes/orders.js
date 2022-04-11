@@ -38,11 +38,11 @@ module.exports = (db) => {
     .then(data => {
       const cart_details = data.rows;
       console.log(req.body);
+      // console.log(res);
     })
     .catch(err => {
       res.status(500).json({ error: err.message });
     });
-    res.redirect('/users');
   });
 
   return router;
