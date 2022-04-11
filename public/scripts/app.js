@@ -9,9 +9,33 @@ $(() => {
 
 let checkoutCart = [];
 
-const displayCart = (checkoutCart) => {
+const renderCartItems = (cartItemDetail) => {
+  $('.cart-details').append(createCartItemDetail(cartItemDetail));
+  checkoutCart.push(cartItemDetail);
 
-  console.log(checkoutCart);
+  console.log('Cart:', checkoutCart);
+
+}
+
+const createCartItemDetail = (cartItem) => {
+
+  const itemName = cartItem.name;
+  const itemPrice = cartItem.price;
+
+  return `
+    <article class="item-detail">
+
+      <div class="cart-item-name">
+        ${itemName}
+      </div>
+
+      <div class="cart-item-price">
+        ${itemPrice}
+      </div>
+
+    </article>
+
+  `
 }
 
 
@@ -19,18 +43,18 @@ const displayCart = (checkoutCart) => {
 const addItemCartDetail = () => {
 
   $('.menu-item-add').on('click', function() {
+    // let checkoutCart = [];
 
-    let cart_detail = {};
+    const cart_detail = {};
     const name = (this.nextElementSibling.innerText);
     const price = (this.parentElement.nextElementSibling.innerText);
 
     cart_detail.name = name;
     cart_detail.price = price;
 
-    checkoutCart.push(cart_detail);
+    // checkoutCart.push(cart_detail);
 
-    return displayCart(checkoutCart);
-
+    renderCartItems(cart_detail);
   });
 
 
