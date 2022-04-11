@@ -4,20 +4,36 @@
 
 $(() => {
   loadItems();
+
 });
 
-const displayCart = () => {
+let checkoutCart = [];
 
+const displayCart = (checkoutCart) => {
+
+  console.log(checkoutCart);
 }
 
 
 // Add items to cart when user clicks on the add-button
-const addItemToCart = (res) => {
+const addItemCartDetail = () => {
+
   $('.menu-item-add').on('click', function() {
 
-    console.log('click');
-    console.log(res);
+    let cart_detail = {};
+    const name = (this.nextElementSibling.innerText);
+    const price = (this.parentElement.nextElementSibling.innerText);
+
+    cart_detail.name = name;
+    cart_detail.price = price;
+
+    checkoutCart.push(cart_detail);
+
+    return displayCart(checkoutCart);
+
   });
+
+
 };
 
 const loadItems = () => {
@@ -26,7 +42,6 @@ const loadItems = () => {
   })
   .then((res) => {
     renderItems(res.items);
-    addItemToCart(res);
   });
 };
 
@@ -34,6 +49,7 @@ const renderItems = (itemsDatabase) => {
   for (const item of itemsDatabase) {
     $('.menu-items').append(createItemElement(item));
   }
+  addItemCartDetail();
 };
 
 const createItemElement = (itemData) => { // Dynamically creates new items from template.
