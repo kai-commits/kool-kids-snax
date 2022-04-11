@@ -7,6 +7,8 @@
 nav {
   display: flex;
   justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
 
   .logo {
     font-family: $primary-feature-font;

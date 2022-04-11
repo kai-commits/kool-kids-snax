@@ -1,6 +1,14 @@
-/* Stylizes individual item */
+/*
+  Stylizes individual menu item
+*/
 
 @import "variables";
+
+.menu-items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
 .item-container {
   margin: 0 3em 2em 0;
@@ -50,5 +58,10 @@
 
   .menu-item-add {
     margin-right: 0.3em;
+    cursor: pointer;
+
+    &:hover{
+      color: $hover-color;
+    }
   }
 }
