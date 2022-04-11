@@ -1,29 +1,33 @@
 /*
-  Client-side operations. Loads menu-items and appends item to cart when selected.
+  Client-side operations. Loads menu-items and appends item to cart when selected on us.
 */
 
 $(() => {
   loadItems();
-
-  $('.cart-checkout-button').on('click', function() {
-    $.ajax('/checkoutOrder/submit', {
-      method: 'POST',
-      data: {...checkoutCart}
-    })
-    .then(() => {
-
-    });
-  });
 });
 
 let checkoutCart = [];
 
-const renderCartItems = (cartItemDetail) => {
-  $('.cart-details').append(createCartItemDetail(cartItemDetail));
-  checkoutCart.push(cartItemDetail);
+// When a user clicks on the checkout button
+const chkoutCartBtn = () => {
+
+  // Order gets submitted and SMS is sent to restaurant
+  $('.checkout-btn').on('click', function() {
+    $.ajax('/order_confirm/submit', {
+      method: 'POST',
+      data: {...checkoutCart}
+    })
+  });
 
 };
 
+// Produces item in cart when user adds menu item
+const renderCartItems = (cartItemDetail) => {
+  $('.cart-details').append(createCartItemDetail(cartItemDetail));
+  checkoutCart.push(cartItemDetail);
+};
+
+// Creates the markup that gets appended to the cart-details container
 const createCartItemDetail = (cartItem) => {
 
   const itemName = cartItem.name;
@@ -65,15 +69,20 @@ const addItemCartDetail = () => {
 
 };
 
+// Loads menu items onto homepage
+// Invokes the event listener for when user checkouts their cart
 const loadItems = () => {
   $.ajax('/items', {
     method: 'GET'
   })
   .then((res) => {
     renderItems(res.items);
+    chkoutCartBtn();
   });
 };
 
+// Appends the markup to the menu-items container
+// Invokes the event listener for when user adds item to cart
 const renderItems = (itemsDatabase) => {
   for (const item of itemsDatabase) {
     $('.menu-items').append(createItemElement(item));
