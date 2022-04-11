@@ -63,8 +63,9 @@ app.use("/checkoutOrder", checkoutOrderRoutes(db));
 app.get("/", (req, res) => {
   const username = req.session.user.name;
   const admin = req.session.user.admin;
+  const user_id = req.session.user.id;
 
-  const templateVars = { username, admin };
+  const templateVars = { username, admin, user_id };
 
   if (req.session.user.admin) {
     return res.render("admin", templateVars);

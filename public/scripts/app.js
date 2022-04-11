@@ -5,6 +5,15 @@
 $(() => {
   loadItems();
 
+  $('.cart-checkout-button').on('click', function() {
+    $.ajax('/checkoutOrder/submit', {
+      method: 'POST',
+      data: {...checkoutCart}
+    })
+    .then(() => {
+
+    });
+  });
 });
 
 let checkoutCart = [];
@@ -42,11 +51,9 @@ const addItemCartDetail = () => {
 
   $('.menu-item-add').on('click', function() {
     // let checkoutCart = [];
-
     const cart_detail = {};
     const name = (this.nextElementSibling.innerText);
     const price = (this.parentElement.nextElementSibling.innerText);
-
     cart_detail.name = name;
     cart_detail.price = price;
 
