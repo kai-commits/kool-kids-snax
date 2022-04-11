@@ -1,0 +1,43 @@
+/*
+  Stylizes cart display
+*/
+
+@import "variables";
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  right: 2em;
+  padding: 2em;
+  margin: 3em;
+  border-left: 1px solid $primary-text-color;
+
+  &-title {
+    font-size: 1.2em;
+    text-align: center;
+    padding-bottom: 2em;
+  }
+
+  &-checkout {
+    display: flex;
+    justify-content: center;
+    top: 1em;
+    padding: 1em;
+    border-top: 1px solid $primary-text-color;
+  }
+}
+
+.cart-details {
+
+  .item-detail {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.1em;
+    border-bottom: 1px solid $cart-inside-border;
+  }
+}
+

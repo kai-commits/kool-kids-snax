@@ -13,9 +13,7 @@ const renderCartItems = (cartItemDetail) => {
   $('.cart-details').append(createCartItemDetail(cartItemDetail));
   checkoutCart.push(cartItemDetail);
 
-  console.log('Cart:', checkoutCart);
-
-}
+};
 
 const createCartItemDetail = (cartItem) => {
 
