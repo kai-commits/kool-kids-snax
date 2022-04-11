@@ -50,5 +50,10 @@
 
   .menu-item-add {
     margin-right: 0.3em;
+    cursor: pointer;
+
+    &:hover{
+      color: $hover-color;
+    }
   }
 }
