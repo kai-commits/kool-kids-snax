@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 
+// Populate items from database
 module.exports = (db) => {
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM items;`)

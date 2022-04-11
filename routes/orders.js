@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 
+// Populate data for orders
 module.exports = (db) => {
   router.get('/', (req, res) => {
     db.query(`SELECT * FROM orders;`)

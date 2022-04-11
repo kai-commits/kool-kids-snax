@@ -45,21 +45,20 @@ app.use(express.static("public"));
 const usersRoutes = require("./routes/users");
 const itemsRoutes = require("./routes/items");
 const ordersRoutes = require("./routes/orders");
-const checkoutOrderRoutes = require("./routes/checkoutOrder");
+const cartRoutes = require("./routes/cart")
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/users", usersRoutes(db));
 app.use("/items", itemsRoutes(db));
 app.use("/orders", ordersRoutes(db));
-app.use("/checkoutOrder", checkoutOrderRoutes(db));
+app.use("/order_confirm", cartRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
-
 app.get("/", (req, res) => {
   const username = req.session.user.name;
   const admin = req.session.user.admin;
