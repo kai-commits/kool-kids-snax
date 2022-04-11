@@ -54,7 +54,6 @@ const addItemCartDetail = () => {
     const cart_detail = {};
     const name = (this.nextElementSibling.innerText);
     const price = (this.parentElement.nextElementSibling.innerText);
-
     cart_detail.name = name;
     cart_detail.price = price;
 

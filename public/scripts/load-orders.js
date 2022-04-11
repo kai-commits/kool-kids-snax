@@ -1,3 +1,7 @@
+$(() => {
+  loadOrders();
+});
+
 const loadOrders = () => {
   $.ajax('/orders', {
     method: 'GET'
