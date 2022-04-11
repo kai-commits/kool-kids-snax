@@ -6,7 +6,7 @@ $(() => {
   loadItems();
 
   $('.cart-checkout-button').on('click', function() {
-    $.ajax('/orders/cart', {
+    $.ajax('/checkoutOrder/submit', {
       method: 'POST',
       data: {...checkoutCart}
     })
