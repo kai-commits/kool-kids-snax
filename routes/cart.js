@@ -2,18 +2,21 @@ const express = require('express');
 const router  = express.Router();
 const { chkoutOrder } = require('../public/scripts/twilio.js');
 
-
+// Build INSERT INTO order_details queries dynamically based on items in cart
 const queryBuilder = (order, orderDetails) => {
-  console.log('order', order);
-  console.log('details', orderDetails);
+
+  const details = orderDetails.items;
 
   let queryStr = `
-    INSERT INTO order_details (${order.id})
-  `;
+    INSERT INTO order_details (order_id, item_id, quantity)
+    VALUES `;
 
-  // for (const item of queryParams.items) {
-  //   queryStr += `(${})`;
-  // }
+  details.forEach(item => {
+    queryStr += `(${order.id}, ${item.id}, ${item.quantity}), `
+  })
+
+  queryStr = queryStr.replace(/,\s*$/, ""); // Remove last comma
+  queryStr += ';'; // Append semi-colon
 
   return queryStr
 }
@@ -22,9 +25,10 @@ const queryBuilder = (order, orderDetails) => {
 module.exports = (db) => {
   router.post('/submit', (req, res) => {
 
+    // Create order row. Orders are defaulted to PENDING status and 15 MIN ESTIMATED TIME
     db.query(
       `INSERT INTO orders (user_id, status_id, estimated_time_id, created_at, price)
-      VALUES (${req.body.user_id}, 1, 1, 'now()', 4000)
+      VALUES (${req.body.user_id}, 1, 1, 'now()', ${req.body.total_price})
       RETURNING *;`
       )
     .then((order) => {
@@ -44,14 +48,3 @@ module.exports = (db) => {
 
   return router;
 };
-
-/*
-    // INSERT INTO orders (user_id, status_id, estimated_time_id, created_at, completed_at, active, price)
-    // VALUES (${req.body.user_id}, 1, 1,${Now()}, ${null}, true, ${req.body.total_price})
-    // RETURNING *;
-*/
-
-    // .then((queryStuff) => {
-    //   console.log('then stuff', queryStuff);
-    //   return db.query(queryBuilder(req.body, queryStuff))
-    // })
