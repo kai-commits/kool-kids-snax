@@ -8,6 +8,8 @@
 const express = require('express');
 const router  = express.Router();
 
+
+// Populate user data
 module.exports = (db) => {
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM users;`)
