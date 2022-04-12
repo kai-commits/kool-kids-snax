@@ -50,6 +50,10 @@ body {
 
 /* Styling for links */
 
+a:link {
+  color: $logo-color;
+}
+
 a:visited {
   color: $primary-text-color;
 }
