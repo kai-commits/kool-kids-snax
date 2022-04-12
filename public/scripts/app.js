@@ -20,6 +20,10 @@ const chkoutCartBtn = () => {
     $.ajax('/order_confirm/submit', {
       method: 'POST',
       data: checkoutCart
+    })
+    .then(() => {
+      $('.cart-details').empty();
+      checkoutCart = {};
     });
   });
 };

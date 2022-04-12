@@ -12,6 +12,7 @@ module.exports = (db) => {
       console.log('shopping cart', req.body);
 
       chkoutOrder();
+      res.redirect('/');
     })
     .catch(err => {
       res.status(500).json({ error: err.message });
