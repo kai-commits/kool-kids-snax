@@ -15,23 +15,29 @@ let cartItemPrices = [];
 const chkoutCartBtn = () => {
   // Order gets submitted and SMS is sent to restaurant
   $('.checkout-btn').on('click', function() {
-    checkoutCart = {
-      user_id: $('.user').attr('id'),
-      items: cartItemNames,
-      total_price: getTotalCartPrice(cartItemPrices)
-    };
-    $.ajax('/order_confirm/submit', {
-      method: 'POST',
-      data: checkoutCart
-    })
-    .then(() => {
-      // Empty cart, reset global variables
-      $('.cart-details').empty();
-      $('.cart-total-price').empty();
-      checkoutCart = {};
-      cartItemNames = [];
-      cartItemPrices = [];
-    });
+
+    if(confirm('Are you sure you want to submit this order?')) {
+      checkoutCart = {
+        user_id: $('.user').attr('id'),
+        items: cartItemNames,
+        total_price: getTotalCartPrice(cartItemPrices)
+      };
+      $.ajax('/order_confirm/submit', {
+        method: 'POST',
+        data: checkoutCart
+      })
+      .then(() => {
+        // Empty cart, reset global variables
+        $('.cart-details').empty();
+        $('.cart-subtotal-price').empty();
+        $('.cart-tax-price').empty();
+        $('.cart-total-price').empty();
+        checkoutCart = {};
+        cartItemNames = [];
+        cartItemPrices = [];
+      });
+
+    }
   });
 };
 
@@ -44,6 +50,21 @@ const getTotalCartPrice = (cartItemPrices) => {
 const getItemQty = (cartItemNames) => {
 
 };
+
+const displayCartPrice = () => {
+  // Display subtotal price of items in cart
+  let subtotal = Math.round(getTotalCartPrice(cartItemPrices) / 100).toFixed(2);
+
+  let tax = (getTotalCartPrice(cartItemPrices) / 100 * 0.05).toFixed(2);
+
+  let total = (getTotalCartPrice(cartItemPrices) / 100 * 1.05).toFixed(2);
+
+
+  $('.cart-subtotal-price').val(`$${subtotal}`);
+  $('.cart-tax-price').val(`$${tax}`);
+  $('.cart-total-price').val(`$${total}`);
+
+}
 
 // Produces item in cart when user adds menu item
 const renderCartItems = (cartItemDetail) => {
@@ -91,12 +112,9 @@ const addItemCartDetail = () => {
 
     renderCartItems(cart_detail);
 
-    // Display total price of items in cart
-    $('.cart-total-price').val(`$${Math.round(getTotalCartPrice(cartItemPrices) / 100).toFixed(2)}`);
-
+    displayCartPrice();
 
   });
-
 
 };
 
