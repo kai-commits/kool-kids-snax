@@ -50,8 +50,11 @@ const renderOrders = (ordersDatabase) => {
 
 const updateBtn = (id) => {
   const btn = $(`[btn-id=${id}]`);
+
   $(btn).on('click', function() {
-    console.log(id);
+    const orderStatusElement = this.parentElement.firstElementChild.lastElementChild;
+    const orderStatusValue = orderStatusElement.options[orderStatusElement.selectedIndex].text;
+    console.log(orderStatusValue);
   });
 };
 
