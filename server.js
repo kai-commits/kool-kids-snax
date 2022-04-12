@@ -46,8 +46,8 @@ const usersRoutes = require("./routes/users");
 const itemsRoutes = require("./routes/items");
 const ordersRoutes = require("./routes/orders");
 const cartRoutes = require("./routes/cart");
-const orderHistoryRoutes = require("./routes/user-order");
 const orderUpdateRoutes = require("./routes/order-update");
+const orderHistoryRoutes = require("./routes/orderHistory");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -55,7 +55,7 @@ app.use("/users", usersRoutes(db));
 app.use("/items", itemsRoutes(db));
 app.use("/orders", ordersRoutes(db));
 app.use("/order_confirm", cartRoutes(db));
-app.use("/user-orders", orderHistoryRoutes(db));
+app.use("/orderHistory", orderHistoryRoutes(db));
 app.use("/order-update", orderUpdateRoutes(db));
 
 
@@ -87,6 +87,7 @@ app.get('/order_history', (req, res) => {
 
   const templateVars = { username, admin, user_id };
   res.render("order-history", templateVars);
+
 })
 
 app.listen(PORT, () => {
