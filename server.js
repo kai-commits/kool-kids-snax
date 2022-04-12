@@ -84,7 +84,7 @@ app.get('/order_history', (req, res) => {
   const user_id = req.session.user.id;
 
   const templateVars = { username, admin, user_id };
-  res.render("order-confirm", templateVars);
+  res.render("order-history", templateVars);
 })
 
 app.listen(PORT, () => {
