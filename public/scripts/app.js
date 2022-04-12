@@ -9,7 +9,7 @@ $(() => {
 
 // When a user clicks on the checkout button
 let checkoutCart = {};
-let cartItemNames = [];
+let cartItemDetails = [];
 let cartItemPrices = [];
 
 const chkoutCartBtn = () => {
@@ -17,7 +17,7 @@ const chkoutCartBtn = () => {
   $('.checkout-btn').on('click', function() {
     checkoutCart = {
       user_id: $('.user').attr('id'),
-      items: cartItemNames,
+      items: getItemQty(cartItemDetails),
       total_price: getTotalCartPrice(cartItemPrices)
     };
     $.ajax('/order_confirm/submit', {
@@ -27,7 +27,7 @@ const chkoutCartBtn = () => {
     .then(() => {
       $('.cart-details').empty();
       checkoutCart = {};
-      cartItemNames = [];
+      cartItemDetails = [];
       cartItemPrices = [];
     });
   });
@@ -40,8 +40,16 @@ const getTotalCartPrice = (cartItemPrices) => {
 
 };
 
-const getItemQty = (cartItemNames) => {
-
+const getItemQty = (cartItemDetails) => {
+  const result = [];
+  for (const item of cartItemDetails) {
+    const quantity = cartItemDetails.filter(el => el.id === item.id).length;
+    result.push({id: item.id, name: item.name, price: item.price, quantity: quantity});
+  }
+  // const ids = cartItemDetails.map(item => item.id)
+  // .filter((value, index, self) => self.indexOf(value) === index);
+  // console.log(ids);
+  return result;
 };
 
 // Produces item in cart when user adds menu item
@@ -80,10 +88,11 @@ const addItemCartDetail = () => {
     const cart_detail = {};
     const name = (this.nextElementSibling.innerText);
     const price = (this.parentElement.nextElementSibling.innerText);
-    // cart_detail.user_id = $('.user').attr('id');
+    const id = (this.nextElementSibling.id);
+
     cart_detail.name = name;
     cart_detail.price = price;
-    cartItemNames.push(name);
+    cartItemDetails.push({id, name, price});
     cartItemPrices.push(price);
 
     // checkoutCart.push(cart_detail);
@@ -129,7 +138,7 @@ const createItemElement = (itemData) => { // Dynamically creates new items from 
       <span class="menu-item-add">
         <i class="fa-solid fa-circle-plus"></i>
       </span>
-      <div class="item-name">${itemData.name}</div>
+      <div class="item-name" id="${itemData.id}">${itemData.name}</div>
     </div>
     <div class="item-price">
       $${item_price}
