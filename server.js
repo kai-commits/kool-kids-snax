@@ -46,6 +46,7 @@ const usersRoutes = require("./routes/users");
 const itemsRoutes = require("./routes/items");
 const ordersRoutes = require("./routes/orders");
 const cartRoutes = require("./routes/cart");
+const orderUpdateRoutes = require("./routes/order-update");
 const orderHistoryRoutes = require("./routes/orderHistory");
 
 // Mount all resource routes
@@ -55,6 +56,7 @@ app.use("/items", itemsRoutes(db));
 app.use("/orders", ordersRoutes(db));
 app.use("/order_confirm", cartRoutes(db));
 app.use("/orderHistory", orderHistoryRoutes(db));
+app.use("/order-update", orderUpdateRoutes(db));
 
 
 // Note: mount other resources here, using the same pattern above
