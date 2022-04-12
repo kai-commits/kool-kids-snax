@@ -17,7 +17,7 @@ const chkoutCartBtn = () => {
   $('.checkout-btn').on('click', function() {
     checkoutCart = {
       user_id: $('.user').attr('id'),
-      items: getItemQty(cartItemDetails),
+      items: getItemDetails(cartItemDetails),
       total_price: getTotalCartPrice(cartItemPrices)
     };
     $.ajax('/order_confirm/submit', {
@@ -40,16 +40,19 @@ const getTotalCartPrice = (cartItemPrices) => {
 
 };
 
-const getItemQty = (cartItemDetails) => {
+const getItemDetails = (cartItemDetails) => { // receives array of item objects
   const result = [];
   for (const item of cartItemDetails) {
-    const quantity = cartItemDetails.filter(el => el.id === item.id).length;
-    result.push({id: item.id, name: item.name, price: item.price, quantity: quantity});
+    const quantity = cartItemDetails.filter(el => el.id === item.id).length; // number of times that item appears in array
+    result.push(JSON.stringify({id: item.id, name: item.name, price: item.price, quantity: quantity})); // push new item object with quantity property
   }
-  // const ids = cartItemDetails.map(item => item.id)
-  // .filter((value, index, self) => self.indexOf(value) === index);
-  // console.log(ids);
-  return result;
+  const set = [...new Set(result)]; // returns only unique items in array
+
+  const formattedSet = [...set].map((item) => { // converts json strings back into item objects
+    if (typeof item === 'string') return JSON.parse(item);
+    else if (typeof item === 'object') return item;
+  });
+  return formattedSet;
 };
 
 // Produces item in cart when user adds menu item
