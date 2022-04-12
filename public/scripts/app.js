@@ -25,7 +25,9 @@ const chkoutCartBtn = () => {
       data: checkoutCart
     })
     .then(() => {
+      // Empty cart, reset global variables
       $('.cart-details').empty();
+      $('.cart-total-price').empty();
       checkoutCart = {};
       cartItemNames = [];
       cartItemPrices = [];
@@ -37,7 +39,6 @@ const getTotalCartPrice = (cartItemPrices) => {
   return cartItemPrices.map(el => {
     return Number(el.replace('$', '')) * 100;
   }).reduce((a, b) => a + b, 0);
-
 };
 
 const getItemQty = (cartItemNames) => {
@@ -89,6 +90,11 @@ const addItemCartDetail = () => {
     // checkoutCart.push(cart_detail);
 
     renderCartItems(cart_detail);
+
+    // Display total price of items in cart
+    $('.cart-total-price').val(`$${Math.round(getTotalCartPrice(cartItemPrices) / 100).toFixed(2)}`);
+
+
   });
 
 
