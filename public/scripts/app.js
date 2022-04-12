@@ -8,11 +8,14 @@ $(() => {
 });
 
 // When a user clicks on the checkout button
+let checkoutCart = {};
+let cartItemNames = [];
+let cartItemPrices = [];
 const chkoutCartBtn = () => {
 
   // Order gets submitted and SMS is sent to restaurant
   $('.checkout-btn').on('click', function() {
-    let checkoutCart = {
+    checkoutCart = {
       user_id: $('.user').attr('id'),
       items: cartItemNames,
       total_price: getTotalCartPrice(cartItemPrices)
@@ -24,12 +27,11 @@ const chkoutCartBtn = () => {
     .then(() => {
       $('.cart-details').empty();
       checkoutCart = {};
+      cartItemNames = [];
+      cartItemPrices = [];
     });
   });
 };
-
-let cartItemNames = [];
-let cartItemPrices = [];
 
 const getTotalCartPrice = (cartItemPrices) => {
   return cartItemPrices.map(el => {
