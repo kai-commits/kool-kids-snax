@@ -8,6 +8,7 @@ const queryBuilder = (order, orderDetails) => {
   console.log('details', orderDetails);
 
   let queryStr = `
+    INSERT INTO order_details (${order.id})
   `;
 
   // for (const item of queryParams.items) {

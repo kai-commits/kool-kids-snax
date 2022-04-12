@@ -54,9 +54,7 @@ const getItemQty = (cartItemNames) => {
 const displayCartPrice = () => {
   // Display subtotal price of items in cart
   let subtotal = Math.round(getTotalCartPrice(cartItemPrices) / 100).toFixed(2);
-
   let tax = (getTotalCartPrice(cartItemPrices) / 100 * 0.05).toFixed(2);
-
   let total = (getTotalCartPrice(cartItemPrices) / 100 * 1.05).toFixed(2);
 
 
@@ -108,6 +106,7 @@ const addItemCartDetail = () => {
     cartItemNames.push(name);
     cartItemPrices.push(price);
 
+    // console.log(this.getElementById('#id'));
     // checkoutCart.push(cart_detail);
 
     renderCartItems(cart_detail);
@@ -141,6 +140,7 @@ const renderItems = (itemsDatabase) => {
 const createItemElement = (itemData) => { // Dynamically creates new items from template.
 
   const item_price = Math.round(itemData.price / 100).toFixed(2);
+  const item_id = itemData.id;
 
   return $(`
   <div class="item-container">
@@ -153,7 +153,7 @@ const createItemElement = (itemData) => { // Dynamically creates new items from 
       <span class="menu-item-add">
         <i class="fa-solid fa-circle-plus"></i>
       </span>
-      <div class="item-name">${itemData.name}</div>
+      <div class="item-name" id="${item_id}">${itemData.name}</div>
     </div>
     <div class="item-price">
       $${item_price}
