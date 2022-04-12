@@ -7,7 +7,14 @@ module.exports = (db) => {
     console.log(req.session)
     db.query(`
       SELECT
-        orders.*, statuses.*, estimated_times.*
+        orders.id as order_id,
+        orders.user_id as user_id,
+        orders.created_at as created_at,
+        orders.completed_at as completed_at,
+        orders.active as active,
+        orders.price as price,
+        statuses.*,
+        estimated_times.*
       FROM orders
       JOIN statuses ON orders.status_id = statuses.id
       JOIN estimated_times ON orders.estimated_time_id = estimated_times.id
