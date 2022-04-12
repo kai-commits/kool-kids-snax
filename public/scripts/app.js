@@ -18,7 +18,7 @@ const chkoutCartBtn = () => {
 
     if(confirm('Are you sure you want to submit this order?')) {
       checkoutCart = {
-        user_id: $('.user').attr('id'),
+        user_id: $('.user').attr('data-user'),
         items: getItemDetails(cartItemDetails),
         total_price: getTotalCartPrice(cartItemPrices)
       };
