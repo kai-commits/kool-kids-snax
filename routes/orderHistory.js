@@ -22,8 +22,6 @@ module.exports = (db) => {
       ;
     `)
       .then((data) => {
-        // console.log('data', data.rows);
-        // console.log('req session', req.session);
         const order_history = data.rows;
         res.json({ order_history });
 
@@ -33,6 +31,23 @@ module.exports = (db) => {
           .status(500)
           .json({ error: err.message })
       })
+  });
+
+  router.get('/:id', (req, res) => {
+    db.query(`
+      SELECT
+        order_details.*, items.*
+      FROM order_details
+      JOIN items ON order_details.item_id = items.id
+      WHERE order_id = ${req.params.id};
+    `)
+    .then(data => {
+      const order_details = data.rows;
+      res.json( {order_details } );
+    })
+    .catch(err => {
+      res.status(500).json({ error: err.message });
+    });
   });
 
   return router;
