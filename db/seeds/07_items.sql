@@ -1,0 +1,12 @@
+INSERT INTO items (name, description, price, url_thumb_photo, menu_groups_id)
+VALUES ('Tonkotsu', 'Pork belly, bean sprouts, cabbage, green onion, 1/2 egg, nori & sweet corn.', 1200, 'https://i2.wp.com/photos.smugmug.com/Easy-Tonkotsu/i-8fbnGkf/0/996a0ce1/X3/Easy%20Tonkotsu%2021-X3.jpg', 1),
+('Agedashi Tofu', 'Lightly fried tofu with an airy crunch – covered in savory Tsuyu broth and topped with katsuobushi!', 600, 'https://pickledplum.com/wp-content/uploads/2018/01/agedashi-tofu-520.jpg', 2),
+('Okonomiyaki', 'Savory Japanese pancake made with flour, eggs, shredded cabbage, pork and topped with a variety of condiments.', 800, 'https://jobsinjapan.com/wpdata/wp-content/uploads/2021/04/okonomiyaki.jpg', 2),
+('Matcha Mochi', 'A sweet Japanese rice cake—gets its pretty green color from matcha powder and a creamy sweetness from coconut milk.', 200, 'https://imagesvc.meredithcorp.io/v3/mm/image?url=https://static.onecms.io/wp-content/uploads/sites/9/2015/02/20/201502-r-xl-matcha-mochi.jpg', 3),
+('Taiyaki', 'Taiyaki is a Japanese fish-shaped cake, commonly sold as street food. It imitates the shape of tai (鯛, red sea bream), which it is named after.', 600, 'https://thisis-japan.com/wp-content/uploads/2017/05/pict_1_large_20131028113909-478x330.jpeg', 3),
+('Gyoza', 'Gyoza (餃子, gyōza) are dumplings filled with ground meat and vegetables and wrapped in a thin dough.', 900, 'https://cardamommagazine.com/wp-content/uploads/2021/04/chicken-gyoza.jpg', 2),
+('Yakisoba', 'Yakisoba is a classic Japanese stir-fried noodle dish that is seasoned with a sweet and savory sauce similar to Worcestershire sauce.', 1100, 'https://www.justonecookbook.com/wp-content/uploads/2020/04/Yakisoba-5428-III.jpg', 1),
+('Yakitori', 'Yakitori consists of bite-sized pieces of meat (usually chicken) served on a bamboo skewer.', 800, 'https://media.timeout.com/images/105552542/1372/772/image.jpg', 1),
+('Sushi Boat', 'Variety of different sushi plated on a make-shift boat.', 1800, 'https://preview.redd.it/o6beocjj9t9z.jpg?auto=webp&s=83b5dd07e21623d5064a6ce81ae02d139790dbca', 1),
+('Ramune', 'Ramune (ラムネ) (Japanese pronunciation: [ɾamɯne]) is a Japanese carbonated soft drink.', 300, 'https://m.media-amazon.com/images/I/81PFMk9gnSL._SL1500_.jpg', 4),
+('Shōchū', 'Shochu is a Japanese traditional hard liquor, distilled spirits made from grains and vegetables', 500, 'https://cdn.tasteatlas.com/images/ingredients/795de52eb1af40289c70cfb9098f2192.jpg?w=600&h=450', 4);
