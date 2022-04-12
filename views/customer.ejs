@@ -26,6 +26,10 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono&family=Heebo:wght@400;500;700;800&family=Inter:wght@300;400;600;900&display=swap" rel="stylesheet">
+
   <!-- Scripts imported -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
@@ -62,13 +66,28 @@
 
     <section class="cart">
       <div class="cart-title">
-        Your Cart:
+        Your Order:
       </div>
 
       <div class="cart-details">
 
         <!-- Populate cart item details -->
 
+      </div>
+
+      <div class="cart-price-details">
+
+        <div class="cart-total-line">
+          <div>Subtotal:</div><div><output name="cart-subtotal-price" class="cart-subtotal-price" for="cart-details"></output></div>
+        </div>
+
+        <div class="cart-total-line">
+          <div>Tax:</div><div><output name="cart-tax-price" class="cart-tax-price" for="cart-details"></output></div>
+        </div>
+
+        <div class="cart-total-line">
+          <div>Total:</div><div><output name="cart-total-price" class="cart-total-price" for="cart-details"></output></div>
+        </div>
       </div>
 
       <div class="cart-checkout">
