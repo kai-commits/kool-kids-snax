@@ -12,11 +12,14 @@ const loadOrderHistory = () => {
 };
 
 const renderOrderHistory = (orderHistoryDb) => {
+
   for (const order of orderHistoryDb) {
 
     if (order.active) {
+      console.log('active!');
       $('#active-history').append(createOrderElement(order));
     } else {
+      console.log('not active!');
       $('#inactive-history').append(createOrderElement(order));
     }
   }
@@ -28,13 +31,13 @@ const createOrderElement = (orderData) => {
     <article class="order-history">
       <div class="order-header">
         <div class="order-id">
-            <h3>Order#: ${orderData.id}</h3>
+            <h3>Order#: ${orderData.order_id}</h3>
         </div>
       </div>
 
       <div class="order-card">
           <div class="order-details">
-            <ul class="details-list" order-id="${orderData.id}">
+            <ul class="details-list" order-id="${orderData.order_id}">
               <li>hi</li>
             </ul>
           </div>
