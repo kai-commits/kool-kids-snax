@@ -42,7 +42,14 @@ const renderOrderDetails = (orderDetailsData) => {
 // Append the order markup to the orders container
 const renderOrders = (ordersDatabase) => {
   for (const order of ordersDatabase) {
-    $('.orders-container').append(createOrderElement(order));
+    console.log('order', order);
+
+    if (order.active) {
+      $('#open-orders').append(createOrderElement(order));
+    } else {
+      $('#closed-orders').append(createOrderElement(order));
+    }
+
     loadOrderDetails(order.id);
     updateBtn(order.id);
   }
@@ -61,6 +68,8 @@ const updateBtn = (id) => {
       method: 'POST',
       data: updateValues
     });
+
+    $('#orderUpdated').modal('show');
   });
 };
 
@@ -71,6 +80,7 @@ const createOrderElement = (orderData) => {
       <div class="order-header">
         <div class="order-id">
           <h3>Order#: ${orderData.id}</h3>
+          <h3>Completed on</h3>
         </div>
       </div>
 
@@ -103,7 +113,7 @@ const createOrderElement = (orderData) => {
             </select>
           </div>
 
-          <button class="update-btn" btn-id=${orderData.id}>Update</button>
+          <button class="button" btn-id=${orderData.id}>Update</button>
 
         </div>
 
