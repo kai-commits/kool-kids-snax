@@ -53,9 +53,10 @@ const updateBtn = (id) => {
 
   $(btn).on('click', function() {
     const status_id = this.parentElement.firstElementChild.lastElementChild.value;
-    const estimated_time_id = this.parentElement.firstElementChild.nextElementSibling.lastElementChild.value;
+    const estimated_time_id = this.parentElement.firstElementChild.nextElementSibling.lastElementChild;
+    const estimated_time_value = estimated_time_id.options[estimated_time_id.selectedIndex].text;
 
-    const updateValues = { order_id: id, status_id, estimated_time_id };
+    const updateValues = { order_id: id, status_id, estimated_time_id: estimated_time_id.value, estimated_time_value };
 
     $.ajax('/order-update', {
       method: 'POST',
