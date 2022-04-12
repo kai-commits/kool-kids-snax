@@ -26,7 +26,6 @@ const loadOrderDetails = (id) => {
 
 // Create markup for each item in the order detail list
 const createOrderDetailsElement = (orderDetail) => {
-  console.log(orderDetail);
   return `
     <li>${orderDetail.name} <i>x${orderDetail.quantity}</i></li>
   `
@@ -45,7 +44,24 @@ const renderOrders = (ordersDatabase) => {
   for (const order of ordersDatabase) {
     $('.orders-container').append(createOrderElement(order));
     loadOrderDetails(order.id);
+    updateBtn(order.id);
   }
+};
+
+const updateBtn = (id) => {
+  const btn = $(`[btn-id=${id}]`);
+
+  $(btn).on('click', function() {
+    const status_id = this.parentElement.firstElementChild.lastElementChild.value;
+    const estimated_time_id = this.parentElement.firstElementChild.nextElementSibling.lastElementChild.value;
+
+    const updateValues = { order_id: id, status_id, estimated_time_id };
+
+    $.ajax('/order-update', {
+      method: 'POST',
+      data: updateValues
+    });
+  });
 };
 
 // Create the markup for orders
@@ -85,6 +101,8 @@ const createOrderElement = (orderData) => {
               <option value="5">60 minutes</option>
             </select>
           </div>
+
+          <button class="update-btn" btn-id=${orderData.id}>Update</button>
 
         </div>
 
