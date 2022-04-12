@@ -24,4 +24,15 @@ const chkoutOrder = () => {
 };
 
 
-module.exports = { chkoutOrder };
+const updateOrder = () => {
+  client.messages
+  .create({
+    body: 'An order has been received and your order will be ready in \'x\' time',
+    to: process.env.PHONE_NUMBER,
+    from: process.env.TWILIO_NUMBER,
+  })
+  .then((message) => console.log(message.sid));
+};
+
+
+module.exports = { chkoutOrder, updateOrder };

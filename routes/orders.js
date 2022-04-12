@@ -1,5 +1,6 @@
 const express = require('express');
 const router  = express.Router();
+const { updateOrder } = require('../public/scripts/twilio.js');
 
 // Populate data for orders
 module.exports = (db) => {
@@ -31,6 +32,11 @@ module.exports = (db) => {
     .catch(err => {
       res.status(500).json({ error: err.message });
     });
+  });
+
+  router.post('/update', (req, res) => {
+    updateOrder();
+    res.redirect('/');
   });
 
   return router;

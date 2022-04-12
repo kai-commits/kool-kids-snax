@@ -4,7 +4,17 @@
 
 $(() => {
   loadOrders();
+  orderUpdateButton();
 });
+
+
+const orderUpdateButton = () => {
+  $('.update-button').on('click', function() {
+    $.ajax('/update', {
+      method: 'POST'
+    })
+  });
+};
 
 // Dynamically loads orders from SQL database
 const loadOrders = () => {
