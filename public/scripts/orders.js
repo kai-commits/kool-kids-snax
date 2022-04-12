@@ -68,20 +68,21 @@ const createOrderElement = (orderData) => {
           <div class="order-status">
             <label for="order-status">Order Status:</label>
             <select name="order-status" id="order-status">
-              <option value="pending">Pending</option>
-              <option value="received">Received</option>
-              <option value="ready">Ready for Pick up</option>
-              <option value="complete">Fulfilled</option>
+              <option value="1">Pending</option>
+              <option value="2">Received</option>
+              <option value="3">Ready for Pick up</option>
+              <option value="4">Fulfilled</option>
             </select>
           </div>
 
           <div class="order-time">
             <label for="order-time">Estimated Time:</label>
             <select name="order-time">
-              <option value="fifteen">15 minutes</option>
-              <option value="twenty-five">25 minutes</option>
-              <option value="forty-five">45 minutes</option>
-              <option value="sixty">60 minutes</option>
+              <option value="1">15 minutes</option>
+              <option value="2">25 minutes</option>
+              <option value="3">30 minutes</option>
+              <option value="4">45 minutes</option>
+              <option value="5">60 minutes</option>
             </select>
           </div>
 

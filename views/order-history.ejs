@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/items.css" type="text/css" />
-
+  <link rel="stylesheet" href="/styles/cart.css" type="text/css" />
 
 
   <!-- Custom Fonts -->
@@ -31,51 +31,95 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&family=Inter:wght@300;400;600;900&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono&family=Heebo:wght@400;500;700;800&family=Inter:wght@300;400;600;900&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
+  <!-- Scripts imported -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/orders.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/auto-scroll.js"></script>
 
 </head>
 
-<body>
+  <body>
 
-  <%- include('partials/_header') %>
+    <%- include('partials/_header') %>
 
-  <main class="content">
+    <main class="content">
 
-    <!-- Auto scroll button -->
-    <div class="scroll-up">
-      <span class="scroll-to-top-click">
-        <i class="fa-solid fa-angles-up" id="arrow-scroll"></i>
-      </span>
-    </div>
+        <div class="scroll-up">
+          <span class="scroll-to-top-click">
+            <i class="fa-solid fa-angles-up" id="arrow-scroll"></i>
+          </span>
+        </div>
 
-    <div class="title">
-      <h2>Orders:</h2>
-    </div>
+        <div>
+          <h2>Active Orders:</h2>
+          <h3>Thanks so much for ordering with us! You'll be snacking in no time.</h3>
+        </div>
 
-    <section class="orders-container">
-
-      <!-- Populate order data -->
-
-    </section>
+        <section class="orders">
 
 
-    <footer class="order-update-status">
-      <button class="order-update-all">Update</button>
-    </footer>
+            <article class="active-order">
+              <div class="order-header">
+                <div class="order-id">
+                  <div>
+                    <h3>Order#: id</h3>
+                  </div>
 
-  </main>
+                </div>
+
+                <div class="order-status">
+                  <h3>Status: Pending</h3>
+                </div>
+              </div>
+
+              <div class="order-card">
+                <div class="order-details">
+                  <ul class="details-list" order-id="id"> stuff
+                  </ul>
+                </div>
+
+
+              </div>
+
+
+            </article>
+
+        </section>
+
+        <div><h2>Closed Orders:</h2></div>
+
+        <section class="orders">
+
+          <article class="active-order">
+            <div class="order-header">
+              <div class="order-id">
+                <h3>Order#: id</h3>
+              </div>
+            </div>
+
+            <div class="order-card">
+              <div class="order-details">
+                <ul class="details-list" order-id="id"> stuff
+                </ul>
+              </div>
+
+
+            </div>
+
+
+          </article>
+        </section>
+    </main>
+
+  </body>
 
   <!-- Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-</body>
+</html>

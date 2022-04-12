@@ -18,7 +18,7 @@ body {
   background: $primary-bg-color;
   font-family: $primary-text-font;
   font-weight: 400;
-  max-width: 1300px;
+  max-width: 1200px;
   min-height: 100vh;
 }
 
@@ -49,6 +49,10 @@ body {
 
 
 /* Styling for links */
+
+a:link {
+  color: $logo-color;
+}
 
 a:visited {
   color: $primary-text-color;

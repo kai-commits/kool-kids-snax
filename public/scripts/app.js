@@ -4,27 +4,80 @@
 
 $(() => {
   loadItems();
+  chkoutCartBtn();
 });
 
-let checkoutCart = [];
-
 // When a user clicks on the checkout button
-const chkoutCartBtn = () => {
+let checkoutCart = {};
+let cartItemDetails = [];
+let cartItemPrices = [];
 
+const chkoutCartBtn = () => {
   // Order gets submitted and SMS is sent to restaurant
   $('.checkout-btn').on('click', function() {
-    $.ajax('/order_confirm/submit', {
-      method: 'POST',
-      data: {...checkoutCart}
-    })
-  });
 
+    if(confirm('Are you sure you want to submit this order?')) {
+      checkoutCart = {
+        user_id: $('.user').attr('id'),
+        items: getItemDetails(cartItemDetails),
+        total_price: getTotalCartPrice(cartItemPrices)
+      };
+      $.ajax('/order_confirm/submit', {
+        method: 'POST',
+        data: checkoutCart
+      })
+      .then(() => {
+        // Empty cart, reset global variables
+        $('.cart-details').empty();
+        $('.cart-subtotal-price').empty();
+        $('.cart-tax-price').empty();
+        $('.cart-total-price').empty();
+        checkoutCart = {};
+        cartItemDetails = [];
+        cartItemPrices = [];
+      });
+
+    }
+  });
 };
+
+const getTotalCartPrice = (cartItemPrices) => {
+  return cartItemPrices.map(el => {
+    return Number(el.replace('$', '')) * 100;
+  }).reduce((a, b) => a + b, 0);
+};
+
+const getItemDetails = (cartItemDetails) => { // receives array of item objects
+  const result = [];
+  for (const item of cartItemDetails) {
+    const quantity = cartItemDetails.filter(el => el.id === item.id).length; // number of times that item appears in array
+    result.push(JSON.stringify({id: item.id, name: item.name, price: item.price, quantity: quantity})); // push new item object with quantity property
+  }
+  const set = [...new Set(result)]; // returns only unique items in array
+
+  const formattedSet = [...set].map((item) => { // converts json strings back into item objects
+    if (typeof item === 'string') return JSON.parse(item);
+    else if (typeof item === 'object') return item;
+  });
+  return formattedSet;
+};
+
+const displayCartPrice = () => {
+  // Display subtotal price of items in cart
+  let subtotal = Math.round(getTotalCartPrice(cartItemPrices) / 100).toFixed(2);
+  let tax = (getTotalCartPrice(cartItemPrices) / 100 * 0.05).toFixed(2);
+  let total = (getTotalCartPrice(cartItemPrices) / 100 * 1.05).toFixed(2);
+
+
+  $('.cart-subtotal-price').val(`$${subtotal}`);
+  $('.cart-tax-price').val(`$${tax}`);
+  $('.cart-total-price').val(`$${total}`);
+
+}
 
 // Produces item in cart when user adds menu item
 const renderCartItems = (cartItemDetail) => {
   $('.cart-details').append(createCartItemDetail(cartItemDetail));
-  checkoutCart.push(cartItemDetail);
 };
 
 // Creates the markup that gets appended to the cart-details container
@@ -58,14 +111,21 @@ const addItemCartDetail = () => {
     const cart_detail = {};
     const name = (this.nextElementSibling.innerText);
     const price = (this.parentElement.nextElementSibling.innerText);
+    const id = (this.nextElementSibling.id);
+
     cart_detail.name = name;
     cart_detail.price = price;
+    cartItemDetails.push({id, name, price});
+    cartItemPrices.push(price);
 
+    // console.log(this.getElementById('#id'));
     // checkoutCart.push(cart_detail);
 
     renderCartItems(cart_detail);
-  });
 
+    displayCartPrice();
+
+  });
 
 };
 
@@ -77,7 +137,6 @@ const loadItems = () => {
   })
   .then((res) => {
     renderItems(res.items);
-    chkoutCartBtn();
   });
 };
 
@@ -105,7 +164,7 @@ const createItemElement = (itemData) => { // Dynamically creates new items from 
       <span class="menu-item-add">
         <i class="fa-solid fa-circle-plus"></i>
       </span>
-      <div class="item-name">${itemData.name}</div>
+      <div class="item-name" id="${itemData.id}">${itemData.name}</div>
     </div>
     <div class="item-price">
       $${item_price}
