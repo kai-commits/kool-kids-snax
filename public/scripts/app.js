@@ -20,7 +20,7 @@ const chkoutCartBtn = () => {
     $.ajax('/order_confirm/submit', {
       method: 'POST',
       data: checkoutCart
-    })
+    });
   });
 };
 
@@ -31,7 +31,7 @@ const getTotalCartPrice = (cartItemPrices) => {
   return cartItemPrices.map(el => {
     return Number(el.replace('$', '')) * 100;
   }).reduce((a, b) => a + b, 0);
-}
+};
 
 
 // Produces item in cart when user adds menu item
