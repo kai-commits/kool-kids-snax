@@ -45,7 +45,8 @@ app.use(express.static("public"));
 const usersRoutes = require("./routes/users");
 const itemsRoutes = require("./routes/items");
 const ordersRoutes = require("./routes/orders");
-const cartRoutes = require("./routes/cart")
+const cartRoutes = require("./routes/cart");
+const orderHistoryRoutes = require("./routes/user-order");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -53,12 +54,15 @@ app.use("/users", usersRoutes(db));
 app.use("/items", itemsRoutes(db));
 app.use("/orders", ordersRoutes(db));
 app.use("/order_confirm", cartRoutes(db));
+app.use("/user-orders", orderHistoryRoutes(db));
+
 
 // Note: mount other resources here, using the same pattern above
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
+
 app.get("/", (req, res) => {
   const username = req.session.user.name;
   const admin = req.session.user.admin;
@@ -72,6 +76,16 @@ app.get("/", (req, res) => {
   res.render("customer", templateVars);
 
 });
+
+app.get('/order_history', (req, res) => {
+  console.log(req.session);
+  const username = req.session.user.name;
+  const admin = req.session.user.admin;
+  const user_id = req.session.user.id;
+
+  const templateVars = { username, admin, user_id };
+  res.render("order-confirm", templateVars);
+})
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
