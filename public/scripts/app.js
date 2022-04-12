@@ -12,9 +12,28 @@ let checkoutCart = {};
 let cartItemDetails = [];
 let cartItemPrices = [];
 
+const viewOrderStatusBtn = () => {
+  // Redirect to user order history
+  $('#view-order-status').on('click', function() {
+    console.log('clicked');
+    document.location.href = '/order_history';
+  })
+}
+
 const chkoutCartBtn = () => {
   // Order gets submitted and SMS is sent to restaurant
-  $('.checkout-btn').on('click', function() {
+
+  $('#checkout-btn').on('click', function() {
+
+
+    function toggleAlert(){
+      $(".alert").toggleClass('in out');
+      return false; // Keep close.bs.alert event from removing from DOM
+    }
+
+
+    $("#btn").on("click", toggleAlert);
+    $('#bsalert').on('close.bs.alert', toggleAlert)
 
     if(confirm('Are you sure you want to submit this order?')) {
       checkoutCart = {
@@ -35,6 +54,12 @@ const chkoutCartBtn = () => {
         checkoutCart = {};
         cartItemDetails = [];
         cartItemPrices = [];
+
+
+        // Display notice that order was placed and to view order status
+        $('#orderPlaced').modal('show');
+        viewOrderStatusBtn();
+
       });
 
     }
