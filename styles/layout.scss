@@ -39,31 +39,31 @@ main {
   display: flex;
   flex-direction: column;
   width: 100%;
-
-  article.order-container {
-    display: flex;
-    flex-direction: column;
-    padding: 2em;
-    margin: 1em 0 1em 0;
-    width: 100%;
-    font-family: $button-font;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-
-    .order-card {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      width: inherit;
-    }
-  }
 }
 
-.orders {
+article.order-container {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+  margin: 1em 0 1em 0;
+  width: 100%;
+  font-family: $button-font;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.order-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: inherit;
+}
+
+.order-history {
   display: flex;
   flex-direction: column;
   width: 100%;
 
-  article.active-order {
+  article {
     display: flex;
     flex-direction: column;
     padding: 2em;

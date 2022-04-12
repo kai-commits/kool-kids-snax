@@ -21,7 +21,6 @@
   <link rel="stylesheet" href="/styles/items.css" type="text/css" />
   <link rel="stylesheet" href="/styles/cart.css" type="text/css" />
 
-
   <!-- Custom Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,6 +40,7 @@
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/auto-scroll.js"></script>
+  <script type="text/javascript" src="/scripts/orderHistory.js"></script>
 
 </head>
 
@@ -58,62 +58,21 @@
 
         <div>
           <h2>Active Orders:</h2>
-          <h3>Thanks so much for ordering with us! You'll be snacking in no time.</h3>
+          <h3>You'll be snacking in no time.</h3>
         </div>
 
-        <section class="orders">
+        <section class="order-history" id="active-history">
 
-
-            <article class="active-order">
-              <div class="order-header">
-                <div class="order-id">
-                  <div>
-                    <h3>Order#: id</h3>
-                  </div>
-
-                </div>
-
-                <div class="order-status">
-                  <h3>Status: Pending</h3>
-                </div>
-              </div>
-
-              <div class="order-card">
-                <div class="order-details">
-                  <ul class="details-list" order-id="id"> stuff
-                  </ul>
-                </div>
-
-
-              </div>
-
-
-            </article>
+          <!-- Populate Active order History of user-->
 
         </section>
 
         <div><h2>Closed Orders:</h2></div>
 
-        <section class="orders">
+        <section class="order-history" id="inactive-history">
 
-          <article class="active-order">
-            <div class="order-header">
-              <div class="order-id">
-                <h3>Order#: id</h3>
-              </div>
-            </div>
+         <!-- Populate inactive orders -->
 
-            <div class="order-card">
-              <div class="order-details">
-                <ul class="details-list" order-id="id"> stuff
-                </ul>
-              </div>
-
-
-            </div>
-
-
-          </article>
         </section>
     </main>
 
