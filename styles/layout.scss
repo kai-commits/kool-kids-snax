@@ -27,7 +27,7 @@ main {
   }
 
   h3 {
-    margin-top: 2em;
+    margin-top: 1em;
     display: flex;
     font-weight: 400;
     font-size: 1.2em;
@@ -46,6 +46,7 @@ main {
     padding: 2em;
     margin: 1em 0 1em 0;
     width: 100%;
+    font-family: $button-font;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 
     .order-card {
@@ -54,5 +55,29 @@ main {
       justify-content: space-between;
       width: inherit;
     }
+  }
+}
+
+.orders {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  article.active-order {
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    margin: 1em 0 1em 0;
+    width: 100%;
+    font-family: $button-font;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+    .order-header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+
   }
 }
