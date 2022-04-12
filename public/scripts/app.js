@@ -25,16 +25,6 @@ const chkoutCartBtn = () => {
 
   $('#checkout-btn').on('click', function() {
 
-
-    function toggleAlert(){
-      $(".alert").toggleClass('in out');
-      return false; // Keep close.bs.alert event from removing from DOM
-    }
-
-
-    $("#btn").on("click", toggleAlert);
-    $('#bsalert').on('close.bs.alert', toggleAlert)
-
     if(confirm('Are you sure you want to submit this order?')) {
       checkoutCart = {
         user_id: $('.user').attr('data-user'),
