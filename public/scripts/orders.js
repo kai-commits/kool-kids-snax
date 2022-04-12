@@ -86,8 +86,9 @@ const createOrderElement = (orderData) => {
             <select name="order-status" id="order-status">
               <option value="1">Pending</option>
               <option value="2">Received</option>
-              <option value="3">Ready for Pick up</option>
-              <option value="4">Fulfilled</option>
+              <option value="3">In-Progress</option>
+              <option value="4">Ready</option>
+              <option value="5">Complete</option>
             </select>
           </div>
 
