@@ -35,8 +35,6 @@ module.exports = (db) => {
       return db.query(queryBuilder(order.rows[0], req.body))
     })
     .then(data => {
-      console.log('shopping cart', req.body);
-
       chkoutOrder();
       res.redirect('/');
     })
