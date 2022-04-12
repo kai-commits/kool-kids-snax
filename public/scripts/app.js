@@ -9,7 +9,7 @@ $(() => {
 
 // When a user clicks on the checkout button
 let checkoutCart = {};
-let cartItemNames = [];
+let cartItemDetails = [];
 let cartItemPrices = [];
 
 const chkoutCartBtn = () => {
@@ -19,7 +19,7 @@ const chkoutCartBtn = () => {
     if(confirm('Are you sure you want to submit this order?')) {
       checkoutCart = {
         user_id: $('.user').attr('id'),
-        items: cartItemNames,
+        items: getItemDetails(cartItemDetails),
         total_price: getTotalCartPrice(cartItemPrices)
       };
       $.ajax('/order_confirm/submit', {
@@ -33,7 +33,7 @@ const chkoutCartBtn = () => {
         $('.cart-tax-price').empty();
         $('.cart-total-price').empty();
         checkoutCart = {};
-        cartItemNames = [];
+        cartItemDetails = [];
         cartItemPrices = [];
       });
 
@@ -47,16 +47,25 @@ const getTotalCartPrice = (cartItemPrices) => {
   }).reduce((a, b) => a + b, 0);
 };
 
-const getItemQty = (cartItemNames) => {
+const getItemDetails = (cartItemDetails) => { // receives array of item objects
+  const result = [];
+  for (const item of cartItemDetails) {
+    const quantity = cartItemDetails.filter(el => el.id === item.id).length; // number of times that item appears in array
+    result.push(JSON.stringify({id: item.id, name: item.name, price: item.price, quantity: quantity})); // push new item object with quantity property
+  }
+  const set = [...new Set(result)]; // returns only unique items in array
 
+  const formattedSet = [...set].map((item) => { // converts json strings back into item objects
+    if (typeof item === 'string') return JSON.parse(item);
+    else if (typeof item === 'object') return item;
+  });
+  return formattedSet;
 };
 
 const displayCartPrice = () => {
   // Display subtotal price of items in cart
   let subtotal = Math.round(getTotalCartPrice(cartItemPrices) / 100).toFixed(2);
-
   let tax = (getTotalCartPrice(cartItemPrices) / 100 * 0.05).toFixed(2);
-
   let total = (getTotalCartPrice(cartItemPrices) / 100 * 1.05).toFixed(2);
 
 
@@ -102,12 +111,14 @@ const addItemCartDetail = () => {
     const cart_detail = {};
     const name = (this.nextElementSibling.innerText);
     const price = (this.parentElement.nextElementSibling.innerText);
-    // cart_detail.user_id = $('.user').attr('id');
+    const id = (this.nextElementSibling.id);
+
     cart_detail.name = name;
     cart_detail.price = price;
-    cartItemNames.push(name);
+    cartItemDetails.push({id, name, price});
     cartItemPrices.push(price);
 
+    // console.log(this.getElementById('#id'));
     // checkoutCart.push(cart_detail);
 
     renderCartItems(cart_detail);
@@ -153,7 +164,7 @@ const createItemElement = (itemData) => { // Dynamically creates new items from 
       <span class="menu-item-add">
         <i class="fa-solid fa-circle-plus"></i>
       </span>
-      <div class="item-name">${itemData.name}</div>
+      <div class="item-name" id="${itemData.id}">${itemData.name}</div>
     </div>
     <div class="item-price">
       $${item_price}
