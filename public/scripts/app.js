@@ -11,8 +11,8 @@ $(() => {
 let checkoutCart = {};
 let cartItemNames = [];
 let cartItemPrices = [];
-const chkoutCartBtn = () => {
 
+const chkoutCartBtn = () => {
   // Order gets submitted and SMS is sent to restaurant
   $('.checkout-btn').on('click', function() {
     checkoutCart = {
@@ -37,8 +37,12 @@ const getTotalCartPrice = (cartItemPrices) => {
   return cartItemPrices.map(el => {
     return Number(el.replace('$', '')) * 100;
   }).reduce((a, b) => a + b, 0);
+
 };
 
+const getItemQty = (cartItemNames) => {
+
+};
 
 // Produces item in cart when user adds menu item
 const renderCartItems = (cartItemDetail) => {
