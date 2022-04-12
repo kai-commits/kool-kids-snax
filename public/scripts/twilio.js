@@ -33,4 +33,14 @@ const updateOrder = (time) => {
   .then((message) => console.log(message.sid));
 };
 
-module.exports = { chkoutOrder, updateOrder };
+const pickUpOrder = () => {
+  client.messages
+  .create({
+    body: 'Your order is ready for pick up.',
+    to: process.env.PHONE_NUMBER,
+    from: process.env.TWILIO_NUMBER,
+  })
+  .then((message) => console.log(message.sid));
+};
+
+module.exports = { chkoutOrder, updateOrder, pickUpOrder };
