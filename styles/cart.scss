@@ -29,6 +29,13 @@
     padding: 1em;
     border-top: 1px solid $primary-text-color;
   }
+
+  &-total {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    border-top: 1px solid black;
+  }
 }
 
 .cart-details {
