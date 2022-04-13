@@ -4,7 +4,7 @@ const router  = express.Router();
 // Populate data for orders
 module.exports = (db) => {
   router.get('/', (req, res) => {
-    db.query(`SELECT * FROM orders ORDER BY orders.id;`)
+    db.query(`SELECT * FROM orders ORDER BY orders.id DESC;`)
       .then(data => {
         const orders = data.rows;
         res.json({ orders });
