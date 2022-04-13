@@ -44,14 +44,16 @@ const renderOrderHistory = (orderHistoryDb) => {
 }
 
 const createOrderElement = (orderData) => {
-  const date = new Date(orderData.created_at).toDateString();
+
   const subtotal = (orderData.price / 100).toFixed(2);
   const tax = ((orderData.price / 100) * 0.05).toFixed(2);
   const totalPrice = (orderData.price / 100 * 1.05).toFixed(2);
-  let completedDate = 'pending';
+
+  const date = moment(orderData.created_at).format('ddd ll @ LT');
+  let completedDate = 'Pending';
   if (orderData.completed_at) {
-    completedDate = new Date(orderData.completed_at).toDateString();
-  }
+    completedDate = moment(orderData.completed_at).format('ddd ll @ LT');
+  };
 
   return `
     <article class="order-history">
