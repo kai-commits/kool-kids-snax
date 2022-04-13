@@ -89,15 +89,20 @@ const setDefaultValues = (status, time) => {
 
 // Create the markup for orders
 const createOrderElement = (orderData) => {
-  const date = new Date(orderData.created_at).toDateString();
+
   const subtotal = (orderData.price / 100).toFixed(2);
   const tax = ((orderData.price / 100) * 0.05).toFixed(2);
   const totalPrice = (orderData.price / 100 * 1.05).toFixed(2);
-  let completedDate = 'pending';
 
+
+  const date = moment(orderData.created_at).format('ddd ll @ LT');
+  // If a an order is has not been completed yet
+  let completedDate = 'Pending';
   if (orderData.completed_at) {
-    completedDate = new Date(orderData.completed_at).toDateString();
-  }
+    completedDate = moment(orderData.completed_at).format('ddd ll @ LT');
+  };
+
+
 
   return $(`
     <article class="order-container">
@@ -133,6 +138,7 @@ const createOrderElement = (orderData) => {
               <option value="3">30 minutes</option>
               <option value="4">45 minutes</option>
               <option value="5">60 minutes</option>
+              <option value="6">Completed</option>
             </select>
           </div>
 
