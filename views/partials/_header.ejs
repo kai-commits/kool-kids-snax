@@ -13,17 +13,27 @@
           <%= username %>
         </span>
 
-        <% if (!admin) { %>
-          <span class="user-orders">
 
-            <a href="/order_history"><i class="fa-solid fa-receipt"></i></a>
-          </span>
-        <% } %>
       </div>
 
       <div class="nav-bar-menu">
         <span class="user-menu-bar">
-          <a href="/"><i class="fa-solid fa-bars"></i></a>
+          <% if (!admin) { %>
+
+
+              <a href="/order_history"><i class="fa-solid fa-receipt"></i></a>
+
+          <% } %>
+
+          <% if (admin) { %>
+
+            <a href="#"><i class="fa-solid fa-user-gear"></i></a>
+            <a href="#"><i class="fa-solid fa-bowl-rice"></i></a>
+
+          <% } %>
+          <a href="/">
+            <i class="fa-solid fa-house-chimney-user"></i>
+          </a>
         </span>
       </div>
     </div>
