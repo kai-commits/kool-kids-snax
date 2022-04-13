@@ -131,6 +131,7 @@ const createOrderElement = (orderData) => {
               <option value="3">30 minutes</option>
               <option value="4">45 minutes</option>
               <option value="5">60 minutes</option>
+              <option value="6">Completed</option>
             </select>
           </div>
 
