@@ -12,7 +12,17 @@ const launchAddForm = () => {
 
     $('#add-new-item').modal('show');
   });
+
+  addItem();
 };
+
+const addItem = () => {
+  $('#add-item-btn').on('click', function() {
+    console.log('add item clicked');
+
+    // Call POST to insert new item
+  })
+}
 
 
 // const addNewItem = () => {
