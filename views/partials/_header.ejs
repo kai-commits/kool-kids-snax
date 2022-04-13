@@ -20,17 +20,18 @@
         <span class="user-menu-bar">
           <% if (!admin) { %>
 
-
               <a href="/order_history"><i class="fa-solid fa-receipt"></i></a>
 
           <% } %>
 
           <% if (admin) { %>
 
-            <a href="#"><i class="fa-solid fa-user-gear"></i></a>
             <a href="#"><i class="fa-solid fa-bowl-rice"></i></a>
 
           <% } %>
+          <a href="#">
+            <i class="fa-solid fa-user-gear"></i>
+          </a>
           <a href="/">
             <i class="fa-solid fa-house-chimney-user"></i>
           </a>
