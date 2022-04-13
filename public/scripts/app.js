@@ -44,7 +44,6 @@ const clearCart = () => {
 
 const chkoutCartBtn = () => {
   // Order gets submitted and SMS is sent to restaurant
-
   $('#checkout-btn').on('click', function() {
 
     if(confirm('Are you sure you want to submit this order?')) {
@@ -66,7 +65,6 @@ const chkoutCartBtn = () => {
         viewOrderStatusBtn();
 
       });
-
     }
   });
 };
