@@ -80,7 +80,6 @@ app.get("/", (req, res) => {
 });
 
 app.get('/order_history', (req, res) => {
-  console.log(req.session);
   const username = req.session.user.name;
   const admin = req.session.user.admin;
   const user_id = req.session.user.id;
