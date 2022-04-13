@@ -46,7 +46,7 @@ const renderOrderHistory = (orderHistoryDb) => {
 const createOrderElement = (orderData) => {
   const date = new Date(orderData.created_at).toDateString();
   const subtotal = (orderData.price / 100).toFixed(2);
-  const tax = (orderData.price / 100) * 0.05;
+  const tax = ((orderData.price / 100) * 0.05).toFixed(2);
   const totalPrice = (orderData.price / 100 * 1.05).toFixed(2);
   const completedDate = new Date(orderData.completed_at).toDateString();
 

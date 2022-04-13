@@ -26,8 +26,10 @@ const loadOrderDetails = (id) => {
 
 // Create markup for each item in the order detail list
 const createOrderDetailsElement = (orderDetail) => {
+  const price = (orderDetail.price / 100).toFixed(2);
+
   return `
-    <li>${orderDetail.name} <i>x${orderDetail.quantity}</i></li>
+    <li>${orderDetail.name} <i>x${orderDetail.quantity} </i>- $${price}</li>
   `
 }
 
@@ -77,7 +79,7 @@ const updateBtn = (id) => {
 const createOrderElement = (orderData) => {
   const date = new Date(orderData.created_at).toDateString();
   const subtotal = (orderData.price / 100).toFixed(2);
-  const tax = (orderData.price / 100) * 0.05;
+  const tax = ((orderData.price / 100) * 0.05).toFixed(2);
   const totalPrice = (orderData.price / 100 * 1.05).toFixed(2);
   const completedDate = new Date(orderData.completed_at).toDateString();
 
