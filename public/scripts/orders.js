@@ -90,6 +90,8 @@ const setDefaultValues = (status, time) => {
 // Create the markup for orders
 const createOrderElement = (orderData) => {
 
+  console.log(orderData);
+
   const subtotal = (orderData.price / 100).toFixed(2);
   const tax = ((orderData.price / 100) * 0.05).toFixed(2);
   const totalPrice = (orderData.price / 100 * 1.05).toFixed(2);
@@ -109,6 +111,7 @@ const createOrderElement = (orderData) => {
       <div class="order-header">
         <div class="order-id">
           <h3>Order#: ${orderData.id}</h3>
+          <i>Placed by: ${orderData.name}</i>
         </div>
       </div>
 
