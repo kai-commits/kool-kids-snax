@@ -1,0 +1,18 @@
+@import "variables";
+
+:root {
+  --background-color: $primary-bg-color;
+  --text-color: $primary-text-color;
+  --logo-color: #EC2049;
+}
+
+[data-theme="dark"] {
+  --background-color: #323437;
+  --text-color: #fff;
+  --logo-color: blue;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}

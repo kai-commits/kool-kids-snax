@@ -17,7 +17,7 @@ nav {
 
 
     .logo-p1 {
-      background-color: $feature-color;
+      background-color: var(--logo-color);
       box-sizing: border-box;
       color: $primary-bg-color;
       font-family: $primary-feature-font, sans-serif;
@@ -59,7 +59,6 @@ nav {
   .user {
     padding-top: 0.3em;
     font-family: $primary-text-font;
-    color: $primary-text-color;
     align-items: center;
 
   }
@@ -71,3 +70,6 @@ nav {
 
 }
 
+.form-check.form-switch {
+  margin-top: 6px;
+}
