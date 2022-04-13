@@ -6,7 +6,7 @@ CREATE TABLE orders (
   status_id INTEGER REFERENCES statuses(id) ON DELETE CASCADE,
   estimated_time_id INTEGER REFERENCES estimated_times(id) ON DELETE CASCADE,
   created_at TIMESTAMP NOT NULL,
-  completed_at TIMESTAMP,
+  completed_at TIMESTAMP DEFAULT NULL,
   active BOOLEAN NOT NULL DEFAULT true,
   price INTEGER NOT NULL
 );
