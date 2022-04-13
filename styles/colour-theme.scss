@@ -1,15 +1,17 @@
 @import "variables";
 
 :root {
-  --background-color: $primary-bg-color;
-  --text-color: $primary-text-color;
-  --logo-color: #EC2049;
+  --background-color: #FFFFFF;
+  --text-color: #000000;
+  --accent-color: #EC2049;
+  --hover-color: #EC2049;
 }
 
 [data-theme="dark"] {
   --background-color: #323437;
   --text-color: #fff;
-  --logo-color: blue;
+  --accent-color: #296efd;
+  --hover-color: #296efd;
 }
 
 body {
