@@ -48,7 +48,10 @@ const createOrderElement = (orderData) => {
   const subtotal = (orderData.price / 100).toFixed(2);
   const tax = ((orderData.price / 100) * 0.05).toFixed(2);
   const totalPrice = (orderData.price / 100 * 1.05).toFixed(2);
-  const completedDate = new Date(orderData.completed_at).toDateString();
+  let completedDate = 'pending';
+  if (orderData.completed_at) {
+    completedDate = new Date(orderData.completed_at).toDateString();
+  }
 
   return `
     <article class="order-history">
