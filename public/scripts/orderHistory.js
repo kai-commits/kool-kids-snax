@@ -21,7 +21,7 @@ const createOrderDetailsElement = (orderDetail) => {
   const price = (orderDetail.price / 100).toFixed(2);
 
   return `
-  <li>${orderDetail.name} <i>x${orderDetail.quantity}</i> - $${price}</li>
+  <li class="detail-line"><div>${orderDetail.name}</div> <i><div>x${orderDetail.quantity}</i></div> <div>$${price}</div></li>
   `
 };
 

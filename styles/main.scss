@@ -114,3 +114,9 @@ button:focus {
     min-height: 100vh;
   }
 };
+
+li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
