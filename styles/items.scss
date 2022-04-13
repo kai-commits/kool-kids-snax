@@ -48,7 +48,7 @@
 }
 
 .item-description {
-  color: $desc-text-color;
+  opacity: 70%;
   font-size: 0.9em;
   font-style: italic;
 }
@@ -62,7 +62,7 @@
     cursor: pointer;
 
     &:hover{
-      color: $hover-color;
+      color: var(--hover-color);
     }
   }
 }
