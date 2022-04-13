@@ -1,5 +1,7 @@
 const express = require('express');
+const { updateOrder, pickUpOrder } = require('../public/scripts/twilio');
 const router  = express.Router();
+
 
 // Populate items from database
 module.exports = (db) => {
@@ -10,6 +12,12 @@ module.exports = (db) => {
     `)
     .then(() => {
       console.log('updated values: ', req.body);
+      if (req.body.status_id === '2') {
+        updateOrder(req.body.estimated_time_value);
+      }
+      if (req.body.status_id === '4') {
+        pickUpOrder();
+      }
       res.redirect('/');
     })
     .catch(err => {
