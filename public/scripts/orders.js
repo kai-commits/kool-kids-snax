@@ -75,12 +75,17 @@ const updateBtn = (id) => {
 
 // Create the markup for orders
 const createOrderElement = (orderData) => {
+  const date = new Date(orderData.created_at).toDateString();
+  const subtotal = (orderData.price / 100).toFixed(2);
+  const tax = (orderData.price / 100) * 0.05;
+  const totalPrice = (orderData.price / 100 * 1.05).toFixed(2);
+  const completedDate = new Date(orderData.completed_at).toDateString();
+
   return $(`
     <article class="order-container">
       <div class="order-header">
         <div class="order-id">
           <h3>Order#: ${orderData.id}</h3>
-          <h3>Completed on</h3>
         </div>
       </div>
 
@@ -117,7 +122,27 @@ const createOrderElement = (orderData) => {
 
         </div>
 
+
       </div>
+
+      <div class="total">
+        <div class="total-titles">
+          <div>Subtotal: $</div>
+          <div>Tax: $</div>
+          <div>Total: $</div>
+        </div>
+      <div class="total-num">
+        <div> ${subtotal}</div>
+        <div> ${tax}</div>
+        <div> ${totalPrice}</div>
+    </div>
+
+      </div>
+
+      <footer class="orders">
+        <div>Order Created: ${date}</div>
+        <div>Order Completed: ${completedDate} </div>
+      </footer>
 
 
     </article>
