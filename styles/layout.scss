@@ -164,7 +164,12 @@ footer {
 }
 
 @media only screen and (min-width: 1100px) {
- section.content {
+
+  main {
+    margin: 2em 4em 0 4em;
+  }
+
+  section.content {
    max-width: 1300px;
 
    .menu-items {
