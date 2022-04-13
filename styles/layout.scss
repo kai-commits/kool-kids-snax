@@ -12,13 +12,23 @@ html {
 main {
   display: flex;
   flex-direction: row;
-  width: 100%;
+}
+
+.menu-group-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 2em;
+  max-width: 700px;
+  font-family: $button-font;
 }
 
 .content {
   display: flex;
   flex-direction: column;
   font-size: 14px;
+  min-width: 500px;
+  width: 100%;
 
   h2 {
     margin-top: 2em;
@@ -152,3 +162,19 @@ footer {
   margin-top:1em;
   padding-top: 1em;
 }
+
+@media only screen and (min-width: 1100px) {
+
+  main {
+    margin: 2em 4em 0 4em;
+  }
+
+  section.content {
+   max-width: 1300px;
+
+   .menu-items {
+     width: auto;
+   }
+
+ }
+};
