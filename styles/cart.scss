@@ -36,6 +36,12 @@
   }
 }
 
+.cart-clear {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
 .cart-container {
   font-size: 0.8em;
   position: fixed;
