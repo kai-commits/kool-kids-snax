@@ -65,6 +65,10 @@ article.order-container {
   width: inherit;
 }
 
+.order-status {
+  text-align: right;
+}
+
 .order-history {
   display: flex;
   flex-direction: column;
