@@ -3,13 +3,14 @@ $(() => {
 });
 
 
-const chkoutCartBtn = () => {
-  $('#').on('click', function() {
+const addNewItems = () => {
+  $('.add_new_item').on('click', function() {
+  })
+  .then(() => {
+    $('#add-new-item').modal('show');
 
-      })
-      .then(() => {
-
-        $('#orderPlaced').modal('show');
+    $.ajax('/add-item/', {
+    method: 'POST'
 
       });
     }
