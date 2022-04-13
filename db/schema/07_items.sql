@@ -8,5 +8,5 @@ CREATE TABLE items (
   description TEXT,
   price INTEGER NOT NULL DEFAULT 0,
   url_thumb_photo VARCHAR(255) NOT NULL,
-  menu_groups_id INTEGER REFERENCES menu_groups(id) ON DELETE CASCADE
+  menu_group_id INTEGER REFERENCES menu_groups(id) ON DELETE CASCADE
 );

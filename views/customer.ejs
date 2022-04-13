@@ -5,7 +5,8 @@
 
   <!-- Required meta tags -->
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1,
+  maximum-scale=1">
 
   <title>Kool-kids Snax</title>
 
@@ -56,6 +57,12 @@
   <%- include('partials/_header') %>
 
   <!-- Main menu content begin here -->
+  <div class="menu-group-links">
+    <a href="#appetizers">Starters</a>
+    <a href="#main-dishes">Mains</a>
+    <a href="#desserts">Desserts</a>
+    <a href="#drinks">Drinks</a>
+  </div>
 
   <main>
 
@@ -67,21 +74,48 @@
         </span>
       </div>
 
-      <div class="container">
 
         <!-- Order confirmation modal -->
+      <%- include('partials/_modal') %>
 
-        <%- include('partials/_modal') %>
 
-      </div>
       <div class="title">
-        <h2>Menu:</h2>
+        <h2>Starters:</h2>
       </div>
 
-      <div class="menu-items">
+      <div class="menu-items" id="appetizers">
+        <!-- Populate menu items -->
+      </div>
+
+      <div class="title">
+        <h2>Main:</h2>
+      </div>
+
+      <div class="menu-items" id="main-dishes">
 
         <!-- Populate menu items -->
 
+      </div>
+
+      <div class="title">
+        <h2>Desserts:</h2>
+      </div>
+
+      <div class="menu-items" id="desserts">
+
+        <!-- Populate menu items -->
+
+      </div>
+
+      <div class="title">
+        <h2>Drinks:</h2>
+      </div>
+
+      <div class="menu-items" id="drinks">
+
+        <!-- Populate menu items -->
+
+      </div>
 
     </section>
 
