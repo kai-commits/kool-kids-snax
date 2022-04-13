@@ -19,6 +19,7 @@ module.exports = (db) => {
       JOIN statuses ON orders.status_id = statuses.id
       JOIN estimated_times ON orders.estimated_time_id = estimated_times.id
       WHERE orders.user_id = ${req.session.user.id}
+      ORDER BY orders.id DESC
       ;
     `)
       .then((data) => {
