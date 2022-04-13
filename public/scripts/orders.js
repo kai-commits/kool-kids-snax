@@ -12,6 +12,7 @@ const loadOrders = () => {
     method: 'GET'
   })
   .then((res) => {
+    $('.orders-container').empty();
     renderOrders(res.orders);
   });
 };
@@ -70,6 +71,9 @@ const updateBtn = (id) => {
     $.ajax('/order-update', {
       method: 'POST',
       data: updateValues
+    })
+    .then(() => {
+      loadOrders();
     });
 
     $('#orderUpdated').modal('show');
