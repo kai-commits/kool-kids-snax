@@ -45,8 +45,6 @@ const renderOrderDetails = (orderDetailsData) => {
 // Append the order markup to the orders container
 const renderOrders = (ordersDatabase) => {
   for (const order of ordersDatabase) {
-    console.log('order', order);
-
     if (order.active) {
       $('#open-orders').append(createOrderElement(order));
     } else {
@@ -89,9 +87,6 @@ const setDefaultValues = (status, time) => {
 
 // Create the markup for orders
 const createOrderElement = (orderData) => {
-
-  console.log(orderData);
-
   const subtotal = (orderData.price / 100).toFixed(2);
   const tax = ((orderData.price / 100) * 0.05).toFixed(2);
   const totalPrice = (orderData.price / 100 * 1.05).toFixed(2);
