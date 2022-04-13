@@ -160,8 +160,6 @@ const loadItems = () => {
 const renderItems = (itemsDatabase) => {
 
   for (const item of itemsDatabase) {
-    console.log('item', item);
-
     switch (item.menu_group_id) {
       case (1):
         $('#main-dishes').append(createItemElement(item));
