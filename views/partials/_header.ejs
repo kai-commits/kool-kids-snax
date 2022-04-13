@@ -26,13 +26,16 @@
         <span class="user-menu-bar">
           <% if (!admin) { %>
 
-              <a href="/order_history"><i class="fa-solid fa-receipt"></i></a>
-
+              <a href="/order_history">
+                <i class="fa-solid fa-receipt"></i>
+              </a>
           <% } %>
 
           <% if (admin) { %>
 
-            <a href="#"><i class="fa-solid fa-bowl-rice"></i></a>
+            <span id="add-new-item-btn">
+              <i class="fa-solid fa-bowl-rice"></i>
+            </span>
 
           <% } %>
           <a href="/">
