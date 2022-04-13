@@ -8,14 +8,9 @@
   font-family: $button-font;
   display: flex;
   flex-direction: column;
-  max-width: 400px;
   width: 100%;
   height: 100%;
-  position: sticky;
-  right: 2em;
-  padding: 2em;
-  margin: 3em 0 3em 0;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
 
   &-title {
     font-family: $button-font;
@@ -38,6 +33,15 @@
     flex-direction: row;
     border-bottom: 1px solid $cart-inside-border;
   }
+}
+
+.cart-container {
+  position: fixed;
+  padding: 2em;
+  margin: 3em 0 3em 0;
+  right: 2em;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  width: 270px;
 }
 
 .cart-details {
