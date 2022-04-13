@@ -5,18 +5,8 @@
 $(() => {
   loadItems();
   chkoutCartBtn();
-  themeSwitch();
   clearCartLink();
-  document.documentElement.setAttribute("data-theme", "light");
 });
-
-const themeSwitch = () => {
-  $('[theme-id="theme-switch-btn"]').on('click', function() {
-    const currentTheme = document.documentElement.getAttribute("data-theme");
-    const switchToTheme = currentTheme === "dark" ? "light" : "dark";
-    document.documentElement.setAttribute("data-theme", switchToTheme);
-  });
-}
 
 // When a user clicks on the checkout button
 let checkoutCart = {};
