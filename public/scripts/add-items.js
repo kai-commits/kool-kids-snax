@@ -13,3 +13,11 @@ const launchAddForm = () => {
     $('#add-new-item').modal('show');
   });
 };
+
+
+// const addNewItem = () => {
+
+//     $.post('/add-item/')
+//       .then()
+//     }
+// };
