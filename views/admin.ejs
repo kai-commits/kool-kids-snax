@@ -51,6 +51,9 @@
 
   <main class="content">
 
+    <!-- Display notification modal -->
+    <%- include('partials/_modal') %>
+
     <!-- Auto scroll button -->
     <div class="scroll-up">
       <span class="scroll-to-top-click">
@@ -59,19 +62,24 @@
     </div>
 
     <div class="title">
-      <h2>Orders:</h2>
+      <h2>Open Orders:</h2>
     </div>
 
-    <section class="orders-container">
+    <section class="orders-container" id="open-orders">
 
-      <!-- Populate order data -->
+      <!-- Populate open orders -->
 
     </section>
 
+    <div class="title">
+      <h2>Closed Orders:</h2>
+    </div>
 
-    <!-- <footer class="order-update-status">
-      <button class="order-update-all">Update</button>
-    </footer> -->
+    <section class="orders-container" id="closed-orders">
+
+      <!-- Populate closed orders -->
+
+    </section>
 
   </main>
 
