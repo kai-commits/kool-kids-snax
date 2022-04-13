@@ -3,10 +3,13 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.post("/add-item", (req, res) => {
+
     db.query(
       `INSERT INTO items (name, description, price, url_thumb_photo, menu_group_id)
       VALUES ($1, $2, $3, $4, $5,)
-      RETURNING *;`, ??????? )
+      RETURNING *;
+      `)
+      .then()
       .catch(err => {
         res
         .status(500)
@@ -14,5 +17,6 @@ module.exports = (db) => {
       });
       res.redirect('/');
   });
+
   return router;
 };
