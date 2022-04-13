@@ -158,8 +158,27 @@ const loadItems = () => {
 // Appends the markup to the menu-items container
 // Invokes the event listener for when user adds item to cart
 const renderItems = (itemsDatabase) => {
+
   for (const item of itemsDatabase) {
-    $('.menu-items').append(createItemElement(item));
+    console.log('item', item);
+
+    switch (item.menu_group_id) {
+      case (1):
+        $('#main-dishes').append(createItemElement(item));
+        break;
+
+      case (2):
+        $('#appetizers').append(createItemElement(item));
+        break;
+
+      case (3):
+        $('#desserts').append(createItemElement(item));
+        break;
+
+      case (4):
+        $('#drinks').append(createItemElement(item));
+        break;
+    }
   }
   addItemCartDetail();
 };
@@ -170,24 +189,25 @@ const createItemElement = (itemData) => { // Dynamically creates new items from 
 
   return $(`
   <div class="item-container">
-  <div class="item-img-container">
-    <img class="item-img" src="${itemData.url_thumb_photo}">
-  </div>
-
-  <div class="item-header">
-    <div class="item-title">
-      <span class="menu-item-add">
-        <i class="fa-solid fa-circle-plus"></i>
-      </span>
-      <div class="item-name" id="${itemData.id}">${itemData.name}</div>
-    </div>
-    <div class="item-price">
-      $${item_price}
+    <div class="item-img-container">
+      <img class="item-img" src="${itemData.url_thumb_photo}">
     </div>
 
-  </div>
-  <div class="item-description">
-    <p>${itemData.description}</p>
+    <div class="item-header">
+      <div class="item-title">
+        <span class="menu-item-add">
+          <i class="fa-solid fa-circle-plus"></i>
+        </span>
+        <div class="item-name" id="${itemData.id}">${itemData.name}</div>
+      </div>
+      <div class="item-price">
+        $${item_price}
+      </div>
+
+    </div>
+    <div class="item-description">
+      <p>${itemData.description}</p>
+    </div>
   </div>
 `)
 };

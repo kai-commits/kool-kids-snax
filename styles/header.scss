@@ -7,14 +7,12 @@
 nav {
   display: flex;
   justify-content: space-between;
-  max-width: 1300px;
   width: 100%;
 
   .logo {
     font-family: $primary-feature-font;
     font-weight: 600;
     font-size: 3em;
-
 
     .logo-p1 {
       background-color: $feature-color;
@@ -48,11 +46,10 @@ nav {
     }
 
   }
-
 }
 
 .nav-bar {
-  padding: 1em 0 0 0;
+  padding: 1em;
   display: flex;
   justify-content: space-between;
 

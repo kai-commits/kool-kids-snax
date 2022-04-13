@@ -12,13 +12,23 @@ html {
 main {
   display: flex;
   flex-direction: row;
-  width: 100%;
+}
+
+.menu-group-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 2em;
+  max-width: 700px;
+  font-family: $button-font;
 }
 
 .content {
   display: flex;
   flex-direction: column;
   font-size: 14px;
+  min-width: 500px;
+  width: 100%;
 
   h2 {
     margin-top: 2em;
@@ -49,7 +59,7 @@ article.order-container {
   margin: 1em 0 1em 0;
   width: 100%;
   font-family: $button-font;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  // box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .order-header {
@@ -152,3 +162,14 @@ footer {
   margin-top:1em;
   padding-top: 1em;
 }
+
+@media only screen and (min-width: 950px) {
+ section .content {
+   max-width: auto;
+   width: 100%;
+
+   .menu-items {
+     width: auto;
+   }
+ }
+};

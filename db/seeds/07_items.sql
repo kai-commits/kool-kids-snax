@@ -1,4 +1,4 @@
-INSERT INTO items (name, description, price, url_thumb_photo, menu_groups_id)
+INSERT INTO items (name, description, price, url_thumb_photo, menu_group_id)
 VALUES ('Tonkotsu', 'Pork belly, bean sprouts, cabbage, green onion, 1/2 egg, nori & sweet corn.', 1200, 'https://i2.wp.com/photos.smugmug.com/Easy-Tonkotsu/i-8fbnGkf/0/996a0ce1/X3/Easy%20Tonkotsu%2021-X3.jpg', 1),
 ('Agedashi Tofu', 'Lightly fried tofu with an airy crunch – covered in savory Tsuyu broth and topped with katsuobushi!', 600, 'https://pickledplum.com/wp-content/uploads/2018/01/agedashi-tofu-520.jpg', 2),
 ('Okonomiyaki', 'Savory Japanese pancake made with flour, eggs, shredded cabbage, pork and topped with a variety of condiments.', 800, 'https://jobsinjapan.com/wpdata/wp-content/uploads/2021/04/okonomiyaki.jpg', 2),
