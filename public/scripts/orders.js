@@ -55,8 +55,10 @@ const renderOrders = (ordersDatabase) => {
 
     loadOrderDetails(order.id);
     updateBtn(order.id);
+    setDefaultValues(order.status_id, order.estimated_time_id);
   }
 };
+
 
 const updateBtn = (id) => {
   const btn = $(`[btn-id=${id}]`);
@@ -78,6 +80,11 @@ const updateBtn = (id) => {
 
     $('#orderUpdated').modal('show');
   });
+};
+
+const setDefaultValues = (status, time) => {
+  $(`[status-id=${status}]`).val(`${status}`);
+  $(`[time-id=${time}]`).val(`${time}`);
 };
 
 // Create the markup for orders
@@ -114,7 +121,7 @@ const createOrderElement = (orderData) => {
         <div class="order-edit">
           <div class="order-status">
             <label for="order-status">Order Status:</label>
-            <select name="order-status" id="order-status">
+            <select name="order-status" status-id="${orderData.status_id}">
               <option value="1">Pending</option>
               <option value="2">Received</option>
               <option value="3">In-Progress</option>
@@ -125,7 +132,7 @@ const createOrderElement = (orderData) => {
 
           <div class="order-time">
             <label for="order-time">Estimated Time:</label>
-            <select name="order-time">
+            <select name="order-time" time-id="${orderData.estimated_time_id}">
               <option value="1">15 minutes</option>
               <option value="2">25 minutes</option>
               <option value="3">30 minutes</option>
