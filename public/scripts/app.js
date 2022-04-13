@@ -5,6 +5,7 @@
 $(() => {
   loadItems();
   chkoutCartBtn();
+  clearCartLink();
 });
 
 // When a user clicks on the checkout button
@@ -19,6 +20,17 @@ const viewOrderStatusBtn = () => {
     document.location.href = '/order_history';
   })
 }
+
+// Function that empties cart
+const clearCart = () => {
+  $('.cart-details').empty();
+  $('.cart-subtotal-price').empty();
+  $('.cart-tax-price').empty();
+  $('.cart-total-price').empty();
+  checkoutCart = {};
+  cartItemDetails = [];
+  cartItemPrices = [];
+};
 
 const chkoutCartBtn = () => {
   // Order gets submitted and SMS is sent to restaurant
@@ -37,14 +49,7 @@ const chkoutCartBtn = () => {
       })
       .then(() => {
         // Empty cart, reset global variables
-        $('.cart-details').empty();
-        $('.cart-subtotal-price').empty();
-        $('.cart-tax-price').empty();
-        $('.cart-total-price').empty();
-        checkoutCart = {};
-        cartItemDetails = [];
-        cartItemPrices = [];
-
+        clearCart();
 
         // Display notice that order was placed and to view order status
         $('#orderPlaced').modal('show');
@@ -53,6 +58,13 @@ const chkoutCartBtn = () => {
       });
 
     }
+  });
+};
+
+// Empty cart when button clicked
+const clearCartLink = () => {
+  $('#cart-clear-link').on('click', function() {
+    clearCart();
   });
 };
 

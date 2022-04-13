@@ -19,3 +19,4 @@
 # Stretch Features
 *   [ ] Restaurant - Ability to add new dishes to the exist menu
 *   [ ] Global - Dark mode
+*   [ ] Allows user to empty out their cart
