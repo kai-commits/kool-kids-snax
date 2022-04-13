@@ -136,12 +136,13 @@ const createOrderElement = (orderData) => {
           <div class="order-time">
             <label for="order-time">Estimated Time:</label>
             <select name="order-time" time-id="${orderData.estimated_time_id}">
-              <option value="1">15 minutes</option>
-              <option value="2">25 minutes</option>
-              <option value="3">30 minutes</option>
-              <option value="4">45 minutes</option>
-              <option value="5">60 minutes</option>
-              <option value="6">Completed</option>
+              <option value="1">Pending</option>
+              <option value="2">15 minutes</option>
+              <option value="3">25 minutes</option>
+              <option value="4">30 minutes</option>
+              <option value="5">45 minutes</option>
+              <option value="6">60 minutes</option>
+              <option value="7">Completed</option>
             </select>
           </div>
 

@@ -72,7 +72,7 @@ const createOrderElement = (orderData) => {
 
         <div class="order-status">
           <h6>Status: ${orderData.name}</h6>
-          <h6>Estimated time: ${orderData.time} minutes</h6>
+          <h6>Estimated time: ${orderData.time}</h6>
         </div>
       </div>
 
