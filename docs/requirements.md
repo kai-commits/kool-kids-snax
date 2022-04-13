@@ -15,3 +15,7 @@
   *   [ ] Information is updated on the website.
   *   [ ] SMS is sent to customer to indicate when order is ready for pick up
 *   [ ] Ability to close order once it has been picked up, removing it from the order page 
+
+# Stretch Features
+*   [ ] Restaurant - Ability to add new dishes to the exist menu
+*   [ ] Global - Dark mode
