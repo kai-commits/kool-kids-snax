@@ -53,23 +53,23 @@ const chkoutCartBtn = () => {
           method: 'POST',
           data: checkoutCart
         })
-        .then(() => {
+          .then(() => {
 
-          // Empty cart, reset global variables
-          clearCart();
-          $('#confirmChkout').modal('toggle');
+            // Empty cart, reset global variables
+            clearCart();
+            $('#confirmChkout').modal('toggle');
 
-          // Display notice that order was placed and to view order status
-          $('#orderPlaced').modal('show');
-          viewOrderStatusBtn();
-        })
+            // Display notice that order was placed and to view order status
+            $('#orderPlaced').modal('show');
+            viewOrderStatusBtn();
+          });
       }
     });
 
     // Allow user to cancel the order confirm
     $('#cancelBtn').on('click', function() {
-    $('#confirmChkout').modal('toggle');
-    })
+      $('#confirmChkout').modal('toggle');
+    });
   });
 };
 
