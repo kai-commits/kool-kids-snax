@@ -4,7 +4,6 @@ const router  = express.Router();
 // Populate order summary for customer
 module.exports = (db) => {
   router.get('/', (req, res) => {
-    console.log(req.session);
     db.query(`
       SELECT
         orders.id as order_id,

@@ -32,17 +32,14 @@ module.exports = (db) => {
       RETURNING *;`
     )
       .then((order) => {
-        console.log('req.body:', req.body);
         return db.query(queryBuilder(order.rows[0], req.body));
       })
       .then(data => {
-        console.log('shopping cart', req.body);
-
         chkoutOrder();
         res.redirect('/');
       })
       .catch(err => {
-        console.log(err);
+        console.log('Error: ', err);
       });
   });
 

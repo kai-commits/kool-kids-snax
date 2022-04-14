@@ -3,8 +3,6 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.post("/", (req, res) => {
-    console.log('this', req.body);
-
     db.query(
       `
       INSERT INTO items (name, description, price, url_thumb_photo, menu_group_id)
@@ -13,11 +11,10 @@ module.exports = (db) => {
       `
     )
       .then(() => {
-        console.log('added to menu!');
         res.redirect('/');
       })
       .catch(err => {
-        console.log(err);
+        console.log('Error: ', err);
         res
           .status(500)
           .json({ error: err.message });

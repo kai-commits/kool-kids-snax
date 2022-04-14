@@ -16,7 +16,6 @@ let cartItemPrices = [];
 const viewOrderStatusBtn = () => {
   // Redirect to user order history
   $('#view-order-status').on('click', function() {
-    console.log('clicked');
     document.location.href = '/order_history';
   });
 };
@@ -88,9 +87,9 @@ const getItemDetails = (cartItemDetails) => { // receives array of item objects
 
 const displayCartPrice = () => {
   // Display subtotal price of items in cart
-  let subtotal = Math.round(getTotalCartPrice(cartItemPrices) / 100).toFixed(2);
-  let tax = (getTotalCartPrice(cartItemPrices) / 100 * 0.05).toFixed(2);
-  let total = (getTotalCartPrice(cartItemPrices) / 100 * 1.05).toFixed(2);
+  const subtotal = Math.round(getTotalCartPrice(cartItemPrices) / 100).toFixed(2);
+  const tax = (getTotalCartPrice(cartItemPrices) / 100 * 0.05).toFixed(2);
+  const total = (getTotalCartPrice(cartItemPrices) / 100 * 1.05).toFixed(2);
 
 
   $('.cart-subtotal-price').val(`$${subtotal}`);
@@ -131,7 +130,6 @@ const createCartItemDetail = (cartItem) => {
 const addItemCartDetail = () => {
 
   $('.menu-item-add').on('click', function() {
-    // let checkoutCart = [];
     const cart_detail = {};
     const name = (this.nextElementSibling.innerText);
     const price = (this.parentElement.nextElementSibling.innerText);
@@ -141,9 +139,6 @@ const addItemCartDetail = () => {
     cart_detail.price = price;
     cartItemDetails.push({id, name, price});
     cartItemPrices.push(price);
-
-    // console.log(this.getElementById('#id'));
-    // checkoutCart.push(cart_detail);
 
     renderCartItems(cart_detail);
 
