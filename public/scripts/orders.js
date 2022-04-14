@@ -27,7 +27,7 @@ const loadOrderDetails = (id) => {
 
 // Create markup for each item in the order detail list
 const createOrderDetailsElement = (orderDetail) => {
-  const price = (orderDetail.price / 100).toFixed(2);
+  const price = (orderDetail.price / 100 * orderDetail.quantity).toFixed(2);
 
   return `
     <li>${orderDetail.name} <i>x${orderDetail.quantity} </i>- $${price}</li>
@@ -133,7 +133,7 @@ const createOrderElement = (orderData) => {
             <select name="order-time" time-id="${orderData.estimated_time_id}">
               <option value="1">Pending</option>
               <option value="2">15 minutes</option>
-              <option value="3">25 minutes</option>
+              <option value="3">20 minutes</option>
               <option value="4">30 minutes</option>
               <option value="5">45 minutes</option>
               <option value="6">60 minutes</option>

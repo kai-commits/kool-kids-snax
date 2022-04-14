@@ -18,7 +18,7 @@ const loadOrderHistoryDetails = (id) => {
 }
 
 const createOrderDetailsElement = (orderDetail) => {
-  const price = (orderDetail.price / 100).toFixed(2);
+  const price = (orderDetail.price / 100 * orderDetail.quantity).toFixed(2);
 
   return `
   <li>${orderDetail.name} <i>x${orderDetail.quantity}</i> - $${price}</li>
