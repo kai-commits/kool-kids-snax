@@ -25,14 +25,14 @@
     justify-content: center;
     top: 1em;
     padding: 1em;
-    border-top: 1px solid $primary-text-color;
+    border-top: 1px solid var(--text-color);
   }
 
   &-total-line {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    border-bottom: 1px solid $cart-inside-border;
+    border-bottom: 1px solid var(--cart-inside-border);
   }
 }
 
@@ -57,13 +57,13 @@
   .item-detail {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid $cart-inside-border;
+    border-bottom: 1px solid var(--cart-inside-border);
   }
 }
 
 .cart-price-details {
   margin-top:1em;
-  border-top: 1px solid $primary-text-color;
+  border-top: 1px solid var(--text-color);
 }
 
 button {

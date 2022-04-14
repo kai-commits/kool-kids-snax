@@ -5,6 +5,7 @@
   --text-color: #000000;
   --accent-color: #EC2049;
   --hover-color: #EC2049;
+  --cart-inside-border: #e2e8e4;
 }
 
 [data-theme="dark"] {
@@ -12,6 +13,7 @@
   --text-color: #fff;
   --accent-color: #296efd;
   --hover-color: #296efd;
+  --cart-inside-border: #5c5c5c;
 }
 
 body {
