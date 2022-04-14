@@ -110,6 +110,8 @@
   </div>
 </div>
 
+<!-- Item successfully added -->
+
 <div class="modal fade" id="itemAdded" role="dialog">
   <div class="modal-dialog">
 
@@ -130,6 +132,8 @@
   </div>
 </div>
 
+
+<!-- Item could not be added -->
 <div class="modal fade" id="itemNotAdded" role="dialog">
   <div class="modal-dialog">
 
@@ -145,6 +149,56 @@
         <h6>Item could not be added to cart. Please try again with valid values.</h6>
 
       </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="modal fade" id="confirmChkout" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+
+    <!-- Display order update confirmation -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Confirm</h4>
+      </div>
+      <div class="modal-body">
+
+        <h6>Are you sure you want to submit this order?</h6>
+
+      </div>
+
+      <div class="modal-footer">
+        <div>
+          <button class="btn btn-default" id="confirmBtn">Confirm</button>
+        </div>
+        <div>
+          <button class="btn btn-default" id="cancelBtn">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="modal fade" id="errorChkout" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+
+    <!-- Display order update confirmation -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Oops, something went wrong...!</h4>
+      </div>
+      <div class="modal-body">
+
+        <h6>You cannot check out an empty cart :') </h6>
+
+      </div>
+
     </div>
 
   </div>
