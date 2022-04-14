@@ -35,26 +35,40 @@ const chkoutCartBtn = () => {
   // Order gets submitted and SMS is sent to restaurant
   $('#checkout-btn').on('click', function() {
 
-    if (confirm('Are you sure you want to submit this order?')) {
+    $('#confirmChkout').modal('show');
+
+    $('#confirmBtn').on('click', function() {
       checkoutCart = {
         user_id: $('.user').attr('data-user'),
         items: getItemDetails(cartItemDetails),
         total_price: getTotalCartPrice(cartItemPrices)
       };
-      $.ajax('/order_confirm/submit', {
-        method: 'POST',
-        data: checkoutCart
-      })
+
+      if (checkoutCart.items.length === 0) {
+        $('#confirmChkout').modal('toggle');
+        $('#errorChkout').modal('show');
+        console.log('help')
+      } else {
+        $.ajax('/order_confirm/submit', {
+          method: 'POST',
+          data: checkoutCart
+        })
         .then(() => {
-        // Empty cart, reset global variables
+
+          // Empty cart, reset global variables
           clearCart();
+          $('#confirmChkout').modal('toggle');
 
           // Display notice that order was placed and to view order status
           $('#orderPlaced').modal('show');
           viewOrderStatusBtn();
+        })
+      }
+    });
 
-        });
-    }
+    $('#cancelBtn').on('click', function() {
+      $('#confirmChkout').modal('toggle');
+    })
   });
 };
 
