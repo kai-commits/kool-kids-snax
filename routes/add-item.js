@@ -22,7 +22,6 @@ module.exports = (db) => {
         .status(500)
         .json({ error: err.message });
       });
-      // res.redirect('/');
   });
 
   return router;
