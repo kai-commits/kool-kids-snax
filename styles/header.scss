@@ -62,7 +62,19 @@ nav {
 
   &-menu {
     font-size: 1.3em;
-    padding: 0 0 0 1em;
+    padding-left: .5em;
+  }
+
+  #add-new-item-btn {
+    cursor: pointer;
+    padding-right: .2em;
+  }
+  #add-new-item-btn:hover {
+    color: var(--accent-color);
+  }
+  #add-new-item-btn:active {
+    cursor: pointer;
+    color: var(--hover-color);
   }
 
 }

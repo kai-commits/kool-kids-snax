@@ -81,8 +81,7 @@ const getItemDetails = (cartItemDetails) => { // receives array of item objects
   const set = [...new Set(result)]; // returns only unique items in array
 
   const formattedSet = [...set].map((item) => { // converts json strings back into item objects
-    if (typeof item === 'string') return JSON.parse(item);
-    else if (typeof item === 'object') return item;
+    return JSON.parse(item);
   });
   return formattedSet;
 };
