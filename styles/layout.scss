@@ -21,7 +21,17 @@ main {
   margin-top: 2em;
   max-width: 700px;
   font-family: $button-font;
+
+  .menu-btn-link {
+    padding: 0px 5px 0px 5px;
+    border-radius: 3px;
+  }
+  .menu-btn-link:hover {
+    background-color: var(--accent-color);
+    color: $primary-bg-color;
+  }
 }
+
 
 .content {
   display: flex;

@@ -37,7 +37,7 @@ nav {
     .logo-p1:after {
       content: '';
       position: absolute;
-      border: 1px solid $primary-text-color;
+      border: 1px solid var(--text-color);
       top: 0.1em;
       left: 2px;
       transform: rotate(-3deg);
