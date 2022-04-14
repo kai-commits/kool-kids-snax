@@ -11,10 +11,10 @@ const loadOrders = () => {
   $.ajax('/orders', {
     method: 'GET'
   })
-  .then((res) => {
-    $('.orders-container').empty();
-    renderOrders(res.orders);
-  });
+    .then((res) => {
+      $('.orders-container').empty();
+      renderOrders(res.orders);
+    });
 };
 
 // Retrieve order details pertaining to order_id
@@ -22,7 +22,7 @@ const loadOrderDetails = (id) => {
   $.get(`/orders/${id}`)
     .then(res => {
       renderOrderDetails(res.order_details);
-    })
+    });
 };
 
 // Create markup for each item in the order detail list
@@ -31,8 +31,8 @@ const createOrderDetailsElement = (orderDetail) => {
 
   return `
     <li>${orderDetail.name} <i>x${orderDetail.quantity} </i>- $${price}</li>
-  `
-}
+  `;
+};
 
 // Append the order-detail line markup to the order-id container
 const renderOrderDetails = (orderDetailsData) => {
@@ -72,9 +72,9 @@ const updateBtn = (id) => {
       method: 'POST',
       data: updateValues
     })
-    .then(() => {
-      loadOrders();
-    });
+      .then(() => {
+        loadOrders();
+      });
 
     $('#orderUpdated').modal('show');
   });
@@ -97,7 +97,7 @@ const createOrderElement = (orderData) => {
   let completedDate = 'Pending';
   if (orderData.completed_at) {
     completedDate = moment(orderData.completed_at).format('ddd ll @ LT');
-  };
+  }
 
 
 

@@ -18,8 +18,8 @@ const viewOrderStatusBtn = () => {
   $('#view-order-status').on('click', function() {
     console.log('clicked');
     document.location.href = '/order_history';
-  })
-}
+  });
+};
 
 // Function that empties cart
 const clearCart = () => {
@@ -36,7 +36,7 @@ const chkoutCartBtn = () => {
   // Order gets submitted and SMS is sent to restaurant
   $('#checkout-btn').on('click', function() {
 
-    if(confirm('Are you sure you want to submit this order?')) {
+    if (confirm('Are you sure you want to submit this order?')) {
       checkoutCart = {
         user_id: $('.user').attr('data-user'),
         items: getItemDetails(cartItemDetails),
@@ -46,15 +46,15 @@ const chkoutCartBtn = () => {
         method: 'POST',
         data: checkoutCart
       })
-      .then(() => {
+        .then(() => {
         // Empty cart, reset global variables
-        clearCart();
+          clearCart();
 
-        // Display notice that order was placed and to view order status
-        $('#orderPlaced').modal('show');
-        viewOrderStatusBtn();
+          // Display notice that order was placed and to view order status
+          $('#orderPlaced').modal('show');
+          viewOrderStatusBtn();
 
-      });
+        });
     }
   });
 };
@@ -97,7 +97,7 @@ const displayCartPrice = () => {
   $('.cart-tax-price').val(`$${tax}`);
   $('.cart-total-price').val(`$${total}`);
 
-}
+};
 
 // Produces item in cart when user adds menu item
 const renderCartItems = (cartItemDetail) => {
@@ -123,8 +123,8 @@ const createCartItemDetail = (cartItem) => {
 
     </article>
 
-  `
-}
+  `;
+};
 
 
 // Add items to cart when user clicks on the add-button
@@ -159,9 +159,9 @@ const loadItems = () => {
   $.ajax('/items', {
     method: 'GET'
   })
-  .then((res) => {
-    renderItems(res.items);
-  });
+    .then((res) => {
+      renderItems(res.items);
+    });
 };
 
 // Appends the markup to the menu-items container
@@ -170,21 +170,21 @@ const renderItems = (itemsDatabase) => {
 
   for (const item of itemsDatabase) {
     switch (item.menu_group_id) {
-      case (1):
-        $('#main-dishes').append(createItemElement(item));
-        break;
+    case (1):
+      $('#main-dishes').append(createItemElement(item));
+      break;
 
-      case (2):
-        $('#appetizers').append(createItemElement(item));
-        break;
+    case (2):
+      $('#appetizers').append(createItemElement(item));
+      break;
 
-      case (3):
-        $('#desserts').append(createItemElement(item));
-        break;
+    case (3):
+      $('#desserts').append(createItemElement(item));
+      break;
 
-      case (4):
-        $('#drinks').append(createItemElement(item));
-        break;
+    case (4):
+      $('#drinks').append(createItemElement(item));
+      break;
     }
   }
   addItemCartDetail();
@@ -216,5 +216,5 @@ const createItemElement = (itemData) => { // Dynamically creates new items from 
       <p>${itemData.description}</p>
     </div>
   </div>
-`)
+`);
 };

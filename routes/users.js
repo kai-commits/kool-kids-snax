@@ -26,17 +26,17 @@ module.exports = (db) => {
 
   router.get('/:id', (req, res) => {
     db.query(`SELECT * FROM users WHERE id = ${req.params.id};`)
-    .then(data => {
-      const user = data.rows[0];
-      req.session.user = user;
+      .then(data => {
+        const user = data.rows[0];
+        req.session.user = user;
 
-      res.redirect('/');
-    })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
+        res.redirect('/');
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
   });
 
   return router;

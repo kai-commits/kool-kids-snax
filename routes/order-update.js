@@ -19,20 +19,20 @@ module.exports = (db) => {
     }
 
     db.query(queryStr)
-    .then(() => {
-      console.log('updated values: ', req.body);
-      if (req.body.status_id === '2') { // 2 = received
-        updateOrder(req.body.estimated_time_value);
-      }
-      if (req.body.status_id === '4') { // 4 = ready
-        pickUpOrder();
-      }
-      res.redirect('/');
-    })
-    .catch(err => {
-      res.status(500).json({ error: err.message });
-      console.log('error:', err);
-    });
+      .then(() => {
+        console.log('updated values: ', req.body);
+        if (req.body.status_id === '2') { // 2 = received
+          updateOrder(req.body.estimated_time_value);
+        }
+        if (req.body.status_id === '4') { // 4 = ready
+          pickUpOrder();
+        }
+        res.redirect('/');
+      })
+      .catch(err => {
+        res.status(500).json({ error: err.message });
+        console.log('error:', err);
+      });
   });
   return router;
 };

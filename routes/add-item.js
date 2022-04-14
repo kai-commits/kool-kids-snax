@@ -11,7 +11,7 @@ module.exports = (db) => {
       VALUES ('${req.body.name}', '${req.body.desc}', ${Number(req.body.price)}, '${req.body.img}', ${req.body.group})
       RETURNING *;
       `
-      )
+    )
       .then(() => {
         console.log('added to menu!');
         res.redirect('/');
@@ -19,8 +19,8 @@ module.exports = (db) => {
       .catch(err => {
         console.log(err);
         res
-        .status(500)
-        .json({ error: err.message });
+          .status(500)
+          .json({ error: err.message });
       });
   });
 

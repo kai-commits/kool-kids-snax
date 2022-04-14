@@ -4,7 +4,7 @@ const router  = express.Router();
 // Populate order summary for customer
 module.exports = (db) => {
   router.get('/', (req, res) => {
-    console.log(req.session)
+    console.log(req.session);
     db.query(`
       SELECT
         orders.id as order_id,
@@ -30,8 +30,8 @@ module.exports = (db) => {
       .catch(err => {
         res
           .status(500)
-          .json({ error: err.message })
-      })
+          .json({ error: err.message });
+      });
   });
 
   router.get('/:id', (req, res) => {
@@ -42,17 +42,17 @@ module.exports = (db) => {
       JOIN items ON order_details.item_id = items.id
       WHERE order_id = ${req.params.id};
     `)
-    .then(data => {
-      const order_details = data.rows;
-      res.json( {order_details } );
-    })
-    .catch(err => {
-      res.status(500).json({ error: err.message });
-    });
+      .then(data => {
+        const order_details = data.rows;
+        res.json({order_details });
+      })
+      .catch(err => {
+        res.status(500).json({ error: err.message });
+      });
   });
 
   return router;
-}
+};
 
 // SELECT
 // orders.*, order_details.*, items.*
