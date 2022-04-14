@@ -30,6 +30,9 @@ main {
     background-color: var(--accent-color);
     color: $primary-bg-color;
   }
+  .menu-btn-link:active {
+    background-color: var(--hover-color);
+  }
 }
 
 

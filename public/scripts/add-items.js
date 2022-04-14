@@ -10,6 +10,7 @@ $(() => {
 const launchAddForm = () => {
   $('#add-new-item-btn').on('click', function() {
     $('#add-new-item').modal('show');
+    $('#add-item-name').focus();
   });
 
   addItem();
