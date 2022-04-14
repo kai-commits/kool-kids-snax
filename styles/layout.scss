@@ -188,3 +188,30 @@ footer {
 
  }
 };
+
+.form-label {
+  font-family: $button-font;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+input[type="text"], textarea[class="form-control"] {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+select {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+option, option[selected] {
+  background-color: var(--background-color);
+  color: var(--text-color);
+
+}
+
+.form-select {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}

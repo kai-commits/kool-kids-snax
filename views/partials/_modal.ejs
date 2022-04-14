@@ -1,3 +1,4 @@
+<!-- Order has been placed -->
 <div class="modal fade" id="orderPlaced" role="dialog">
   <div class="modal-dialog">
 
@@ -24,12 +25,14 @@
   </div>
 </div>
 
+
+<!-- Order has been updated -->
 <div class="modal fade" id="orderUpdated" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
 
-    <!-- Display order confirmation -->
+    <!-- Display order update confirmation -->
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">Order Updated</h4>
@@ -38,6 +41,88 @@
         <h5>This order has been updated.</h5>
 
         <h6>A text message will be sent to the customer shortly informing them of their order status.</h6>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- Add new form item -->
+
+<div class="modal fade" id="add-new-item" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+
+    <!-- Display form to add new item -->
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h4 class="modal-title">Add New Item:</h4>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="mb-3">
+          <label for="item-name" class="form-label">Menu item name:</label>
+          <input type="text" class="form-control" id="add-item-name" placeholder="Takoyaki" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="item-desc" class="form-label">Item description:</label>
+          <textarea class="form-control" id="add-item-desc" rows="3" placeholder="A mouthwatering..." required></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="item-price" class="form-label">Price:</label>
+          <input type="text" class="form-control" id="add-item-price" placeholder="$$$$" required>
+        </div>
+
+
+        <div class="mb-3">
+          <label for="item-img" class="form-label">Item image:</label>
+          <input type="text" class="form-control" id="add-item-img" placeholder="Link" required></textarea>
+        </div>
+
+        <div class="col-md-4">
+          <label for="item-menu-group" class="form-label">Menu Group</label>
+          <select id="add-item-menu-group" class="form-select" required>
+            <option selected>Choose...</option>
+            <option value="2">Starters</option>
+            <option value="1">Mains</option>
+            <option value="3">Desserts</option>
+            <option value="4">Drinks</option>
+          </select>
+        </div>
+
+
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-default" id="add-item-btn">Add Item</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<div class="modal fade" id="itemAdded" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+
+    <!-- Display order update confirmation -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Item has been added!</h4>
+      </div>
+      <div class="modal-body">
+
+        <h6>New item has been added to Kool-kids Snax.</h6>
 
       </div>
     </div>

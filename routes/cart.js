@@ -32,6 +32,7 @@ module.exports = (db) => {
       RETURNING *;`
       )
     .then((order) => {
+      console.log('req.body:', req.body)
       return db.query(queryBuilder(order.rows[0], req.body))
     })
     .then(data => {
