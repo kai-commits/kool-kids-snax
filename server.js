@@ -80,6 +80,15 @@ app.get("/", (req, res) => {
 
 });
 
+app.get("/login", (req, res) => {
+  const username = req.session.user.name;
+  const admin = req.session.user.admin;
+  const user_id = req.session.user.id;
+
+  const templateVars = { username, admin, user_id };
+  res.render("login"), templateVars;
+});
+
 app.get('/order_history', (req, res) => {
   const username = req.session.user.name;
   const admin = req.session.user.admin;
