@@ -27,13 +27,13 @@ module.exports = (db) => {
       JOIN items ON order_details.item_id = items.id
       WHERE order_id = ${req.params.id};
     `)
-    .then(data => {
-      const order_details = data.rows;
-      res.json( {order_details });
-    })
-    .catch(err => {
-      res.status(500).json({ error: err.message });
-    });
+      .then(data => {
+        const order_details = data.rows;
+        res.json({order_details });
+      })
+      .catch(err => {
+        res.status(500).json({ error: err.message });
+      });
   });
 
   return router;

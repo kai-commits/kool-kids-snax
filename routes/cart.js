@@ -12,14 +12,14 @@ const queryBuilder = (order, orderDetails) => {
     VALUES `;
 
   details.forEach(item => {
-    queryStr += `(${order.id}, ${item.id}, ${item.quantity}), `
-  })
+    queryStr += `(${order.id}, ${item.id}, ${item.quantity}), `;
+  });
 
   queryStr = queryStr.replace(/,\s*$/, ""); // Remove last comma
   queryStr += ';'; // Append semi-colon
 
-  return queryStr
-}
+  return queryStr;
+};
 
 // When the user clicks on the checkout button
 module.exports = (db) => {
@@ -30,20 +30,20 @@ module.exports = (db) => {
       `INSERT INTO orders (user_id, status_id, estimated_time_id, created_at, price)
       VALUES (${req.body.user_id}, 1, 1, 'now()', ${req.body.total_price})
       RETURNING *;`
-      )
-    .then((order) => {
-      console.log('req.body:', req.body)
-      return db.query(queryBuilder(order.rows[0], req.body))
-    })
-    .then(data => {
-      console.log('shopping cart', req.body);
+    )
+      .then((order) => {
+        console.log('req.body:', req.body);
+        return db.query(queryBuilder(order.rows[0], req.body));
+      })
+      .then(data => {
+        console.log('shopping cart', req.body);
 
-      chkoutOrder();
-      res.redirect('/');
-    })
-    .catch(err => {
-      console.log(err);
-    });
+        chkoutOrder();
+        res.redirect('/');
+      })
+      .catch(err => {
+        console.log(err);
+      });
   });
 
   return router;

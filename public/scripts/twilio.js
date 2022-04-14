@@ -15,32 +15,32 @@ const client = new twilio(accountSid, authToken);
 // SMS will be sent to restaurant notifying it that an order has been placed
 const chkoutOrder = () => {
   client.messages
-  .create({
-    body: 'An order has been placed for Kool-Kids Snax. Please update its status on the admin console.',
-    to: process.env.PHONE_NUMBER,
-    from: process.env.TWILIO_NUMBER,
-  })
-  .then((message) => console.log(message.sid));
+    .create({
+      body: 'An order has been placed for Kool-Kids Snax. Please update its status on the admin console.',
+      to: process.env.PHONE_NUMBER,
+      from: process.env.TWILIO_NUMBER,
+    })
+    .then((message) => console.log(message.sid));
 };
 
 const updateOrder = (time) => {
   client.messages
-  .create({
-    body: `An order has been received and your order will be ready in ${time}.`,
-    to: process.env.PHONE_NUMBER,
-    from: process.env.TWILIO_NUMBER,
-  })
-  .then((message) => console.log(message.sid));
+    .create({
+      body: `An order has been received and your order will be ready in ${time}.`,
+      to: process.env.PHONE_NUMBER,
+      from: process.env.TWILIO_NUMBER,
+    })
+    .then((message) => console.log(message.sid));
 };
 
 const pickUpOrder = () => {
   client.messages
-  .create({
-    body: 'Your order is ready for pick up.',
-    to: process.env.PHONE_NUMBER,
-    from: process.env.TWILIO_NUMBER,
-  })
-  .then((message) => console.log(message.sid));
+    .create({
+      body: 'Your order is ready for pick up.',
+      to: process.env.PHONE_NUMBER,
+      from: process.env.TWILIO_NUMBER,
+    })
+    .then((message) => console.log(message.sid));
 };
 
 module.exports = { chkoutOrder, updateOrder, pickUpOrder };

@@ -6,23 +6,23 @@ $(() => {
 const loadOrderHistory = () => {
   $.get('/orderhistory')
     .then(res => {
-      renderOrderHistory(res.order_history)
-    })
+      renderOrderHistory(res.order_history);
+    });
 };
 
 const loadOrderHistoryDetails = (id) => {
   $.get(`orderhistory/${id}`)
     .then(res => {
       renderOrderDetails(res.order_details);
-    })
-}
+    });
+};
 
 const createOrderDetailsElement = (orderDetail) => {
   const price = (orderDetail.price / 100).toFixed(2);
 
   return `
   <li>${orderDetail.name} <i>x${orderDetail.quantity}</i> - $${price}</li>
-  `
+  `;
 };
 
 const renderOrderDetails = (orderDetails) => {
@@ -41,7 +41,7 @@ const renderOrderHistory = (orderHistoryDb) => {
     }
     loadOrderHistoryDetails(order.order_id);
   }
-}
+};
 
 const createOrderElement = (orderData) => {
 
@@ -53,7 +53,7 @@ const createOrderElement = (orderData) => {
   let completedDate = 'Pending';
   if (orderData.completed_at) {
     completedDate = moment(orderData.completed_at).format('ddd ll @ LT');
-  };
+  }
 
   return `
     <article class="order-history">
@@ -97,5 +97,5 @@ const createOrderElement = (orderData) => {
       </footer>
 
     </article>
-  `
-}
+  `;
+};
