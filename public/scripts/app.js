@@ -47,7 +47,7 @@ const chkoutCartBtn = () => {
       if (checkoutCart.items.length === 0) {
         $('#confirmChkout').modal('toggle');
         $('#errorChkout').modal('show');
-        console.log('help')
+
       } else {
         $.ajax('/order_confirm/submit', {
           method: 'POST',
@@ -66,8 +66,9 @@ const chkoutCartBtn = () => {
       }
     });
 
+    // Allow user to cancel the order confirm
     $('#cancelBtn').on('click', function() {
-      $('#confirmChkout').modal('toggle');
+    $('#confirmChkout').modal('toggle');
     })
   });
 };
