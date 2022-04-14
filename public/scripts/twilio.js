@@ -20,7 +20,6 @@ const chkoutOrder = () => {
       to: process.env.PHONE_NUMBER,
       from: process.env.TWILIO_NUMBER,
     })
-    .then((message) => console.log(message.sid));
 };
 
 const updateOrder = (time) => {
@@ -30,7 +29,6 @@ const updateOrder = (time) => {
       to: process.env.PHONE_NUMBER,
       from: process.env.TWILIO_NUMBER,
     })
-    .then((message) => console.log(message.sid));
 };
 
 const pickUpOrder = () => {
@@ -40,7 +38,6 @@ const pickUpOrder = () => {
       to: process.env.PHONE_NUMBER,
       from: process.env.TWILIO_NUMBER,
     })
-    .then((message) => console.log(message.sid));
 };
 
 module.exports = { chkoutOrder, updateOrder, pickUpOrder };

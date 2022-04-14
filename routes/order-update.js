@@ -20,7 +20,6 @@ module.exports = (db) => {
 
     db.query(queryStr)
       .then(() => {
-        console.log('updated values: ', req.body);
         if (req.body.status_id === '2') { // 2 = received
           updateOrder(req.body.estimated_time_value);
         }
@@ -31,7 +30,7 @@ module.exports = (db) => {
       })
       .catch(err => {
         res.status(500).json({ error: err.message });
-        console.log('error:', err);
+        console.log('Error: ', err);
       });
   });
   return router;

@@ -19,13 +19,11 @@ const launchAddForm = () => {
 // Invoke event listener for the add item button
 const addItem = () => {
   $('#add-item-btn').on('click', function() {
-
     const name = document.getElementById('add-item-name').value;
     const desc = document.getElementById('add-item-desc').value;
     const img = document.getElementById('add-item-img').value;
     const group = document.getElementById('add-item-menu-group').value;
     const price = document.getElementById('add-item-price').value;
-
     const newItem = { name, desc, price, img, group };
 
     // Call POST request to insert new menu item to items table
