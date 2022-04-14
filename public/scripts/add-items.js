@@ -30,10 +30,6 @@ const addItem = () => {
     // Call POST request to insert new menu item to items table
     addNewItem(newItem);
 
-    // Inform user that menu item has been successfully added
-    $('#add-new-item').modal('toggle');
-    $('#itemAdded').modal('show');
-
     // Clear form values
     $('#add-item-name').val('');
     $('#add-item-desc').val('');
@@ -47,9 +43,13 @@ const addItem = () => {
 const addNewItem = (newItem) => {
   $.post('/add-item', newItem)
     .then(() => {
+      // Inform user that menu item has been successfully added
+      $('#add-new-item').modal('toggle');
+      $('#itemAdded').modal('show');
     })
-    .catch(err => {
-      console.log('something', err.message);
+    .catch(() => {
+      $('#add-new-item').modal('toggle');
+      $('#itemNotAdded').modal('show');
     })
 
 };
