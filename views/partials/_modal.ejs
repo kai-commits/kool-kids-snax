@@ -67,23 +67,28 @@
 
         <div class="mb-3">
           <label for="item-name" class="form-label">Menu item name:</label>
-          <input type="text" class="form-control" id="add-item-name" placeholder="Takoyaki">
+          <input type="text" class="form-control" id="add-item-name" placeholder="Takoyaki" required>
         </div>
 
         <div class="mb-3">
           <label for="item-desc" class="form-label">Item description:</label>
-          <textarea class="form-control" id="add-item-desc" rows="3" placeholder="A mouthwatering..."></textarea>
+          <textarea class="form-control" id="add-item-desc" rows="3" placeholder="A mouthwatering..." required></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="item-price" class="form-label">Price:</label>
+          <input type="text" class="form-control" id="add-item-price" placeholder="$$$$" required>
         </div>
 
 
         <div class="mb-3">
           <label for="item-img" class="form-label">Item image:</label>
-          <input type="text" class="form-control" id="add-item-img" placeholder="Link"></textarea>
+          <input type="text" class="form-control" id="add-item-img" placeholder="Link" required></textarea>
         </div>
 
         <div class="col-md-4">
           <label for="item-menu-group" class="form-label">Menu Group</label>
-          <select id="add-item-menu-group" class="form-select">
+          <select id="add-item-menu-group" class="form-select" required>
             <option selected>Choose...</option>
             <option value="2">Starters</option>
             <option value="1">Mains</option>
@@ -92,12 +97,34 @@
           </select>
         </div>
 
+
+
       </div>
 
       <div class="modal-footer">
         <button class="btn btn-default" id="add-item-btn">Add Item</button>
       </div>
 
+    </div>
+
+  </div>
+</div>
+
+<div class="modal fade" id="itemAdded" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+
+    <!-- Display order update confirmation -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Item has been added!</h4>
+      </div>
+      <div class="modal-body">
+
+        <h6>New item has been added to Kool-kids Snax.</h6>
+
+      </div>
     </div>
 
   </div>
