@@ -61,7 +61,10 @@
     margin-right: 0.3em;
     cursor: pointer;
 
-    &:hover{
+    &:hover {
+      color: var(--accent-color);
+    }
+    &:active {
       color: var(--hover-color);
     }
   }
