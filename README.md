@@ -36,4 +36,4 @@ Kool-Kids Snax is a full stack web application food ordering app that was built 
 - pg
 - Sass
 - Twilio
-- Nodemon
+- Nodemon 
