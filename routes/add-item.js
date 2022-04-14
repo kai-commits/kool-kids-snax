@@ -3,7 +3,6 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.post("/", (req, res) => {
-    console.log('this', req.body);
 
     db.query(
       `
@@ -13,7 +12,6 @@ module.exports = (db) => {
       `
       )
       .then(() => {
-        console.log('added to menu!');
         res.redirect('/');
       })
       .catch(err => {

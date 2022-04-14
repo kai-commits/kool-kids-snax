@@ -40,7 +40,7 @@ const addItem = () => {
     $('#add-item-img').val('');
     $('#add-item-menu-group').val('Choose...');
     $('#add-item-price').val('');
-  })
+  });
 }
 
 // Ajax post request to insert new item into table
@@ -49,7 +49,7 @@ const addNewItem = (newItem) => {
     .then(() => {
     })
     .catch(err => {
-      console.log('something', err.message);
+      console.log('Error message', err.message);
     })
 
 };
