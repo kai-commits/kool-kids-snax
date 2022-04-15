@@ -17,7 +17,7 @@ const chkoutOrder = () => {
   client.messages
     .create({
       body: 'An order has been placed for Kool-Kids Snax. Please update its status on the admin console.',
-      to: process.env.PHONE_NUMBER,
+      to: process.env.RESTAURANT_PHONE_NUMBER,
       from: process.env.TWILIO_NUMBER,
     })
 };
@@ -25,8 +25,8 @@ const chkoutOrder = () => {
 const updateOrder = (time) => {
   client.messages
     .create({
-      body: `An order has been received and your order will be ready in ${time}.`,
-      to: process.env.PHONE_NUMBER,
+      body: `Your order has been received and will be ready in ${time}.`,
+      to: process.env.CUSTOMER_PHONE_NUMBER,
       from: process.env.TWILIO_NUMBER,
     })
 };
@@ -35,7 +35,7 @@ const pickUpOrder = () => {
   client.messages
     .create({
       body: 'Your order is ready for pick up.',
-      to: process.env.PHONE_NUMBER,
+      to: process.env.RESTAURANT_PHONE_NUMBER,
       from: process.env.TWILIO_NUMBER,
     })
 };
