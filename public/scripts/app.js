@@ -100,6 +100,7 @@ const getItemDetails = (cartItemDetails) => { // receives array of item objects
   return formattedSet;
 };
 
+
 const displayCartPrice = () => {
   // Display subtotal price of items in cart
   const subtotal = Math.round(getTotalCartPrice(cartItemPrices) / 100).toFixed(2);
@@ -110,7 +111,6 @@ const displayCartPrice = () => {
   $('.cart-subtotal-price').val(`$${subtotal}`);
   $('.cart-tax-price').val(`$${tax}`);
   $('.cart-total-price').val(`$${total}`);
-
 };
 
 // Produces item in cart when user adds menu item
@@ -201,7 +201,6 @@ const renderItems = (itemsDatabase) => {
 };
 
 const createItemElement = (itemData) => { // Dynamically creates new items from template.
-
   const item_price = Math.round(itemData.price / 100).toFixed(2);
 
   return $(`
