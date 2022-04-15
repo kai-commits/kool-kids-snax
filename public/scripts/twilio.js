@@ -35,7 +35,7 @@ const pickUpOrder = () => {
   client.messages
     .create({
       body: 'Your order is ready for pick up.',
-      to: process.env.RESTAURANT_PHONE_NUMBER,
+      to: process.env.CUSTOMER_PHONE_NUMBER,
       from: process.env.TWILIO_NUMBER,
     })
 };
