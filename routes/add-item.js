@@ -1,4 +1,5 @@
 const express = require('express');
+const items = require('./items');
 const router  = express.Router();
 
 module.exports = (db) => {
@@ -6,9 +7,9 @@ module.exports = (db) => {
     db.query(
       `
       INSERT INTO items (name, description, price, url_thumb_photo, menu_group_id)
-      VALUES ('${req.body.name}', '${req.body.desc}', ${Number(req.body.price)}, '${req.body.img}', ${req.body.group})
+      VALUES ($1, $2, $3, $4, $5)
       RETURNING *;
-      `
+      `, [req.body.name, req.body.desc, Number(req.body.price), req.body.img, req.body.group]
     )
       .then(() => {
         res.redirect('/');
