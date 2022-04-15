@@ -1,6 +1,6 @@
 # Kool-Kids Snax
 
-View the hosted version of this project [here](http://kool-kids-snax.herokuapp.com). It is best viewed between 900px - 1300px.
+View the hosted version of this project [here](http://kool-kids-snax.herokuapp.com/users/4). It is best viewed between 900px - 1300px.
 
 Kool-Kids Snax is a full stack web application food ordering app that was built as midterm project at Lighthouse Labs with a small team. It allows the customer to place an order and then hear from the restaurant when the order is being prepared.
 
