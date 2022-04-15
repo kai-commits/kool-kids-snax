@@ -6,9 +6,9 @@ Kool-Kids Snax is a full stack web application food ordering app that was built 
 
 This project was developed by [Kai Meikle](https://github.com/kai-commits), [Krismina La](https://github.com/arismink) and [Kevin Lee](https://github.com/Cloud9NB).
 
-* Backend was built using Node.js, Express, EJS, and PostreSQL
-* Front-end was built with Bootstrap, Javascript, jQuery, Sass and HTML/CSS
-* The Twilio API was used to communicate with the customer and the restaurant
+* Backend is built using Node.js, Express, EJS, and PostreSQL
+* Front-end is built with Bootstrap, Javascript, jQuery, SASS and HTML/CSS
+* The Twilio API is used to communicate with the customer and the restaurant
 
 ![]()
 ![]()
