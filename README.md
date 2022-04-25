@@ -10,10 +10,6 @@ This project was developed by [Kai Meikle](https://github.com/kai-commits), [Kri
 * Front-end is built with Bootstrap, Javascript, jQuery, SASS and HTML/CSS
 * The Twilio API is used to communicate with the customer and the restaurant
 
-![]()
-![]()
-![]()
-
 
 ## Getting Started
 
@@ -28,6 +24,14 @@ To run the following project on your local machine, please follow the steps belo
 6. Run the server: `npm run local`
   - Note: nodemon is used, so you should not have to restart your server
 7. Visit `http://localhost:8080/`
+
+
+## Final Product
+
+![Customer View](https://github.com/kai-commits/kool-kids-snax/blob/master/docs/readme-preview/Customer%20View.gif)
+![Admin View](https://github.com/kai-commits/kool-kids-snax/blob/master/docs/readme-preview/Admin%20Order.gif)
+![Admin Add Item](https://github.com/kai-commits/kool-kids-snax/blob/master/docs/readme-preview/Admin%20Add%20Item.png)
+![Customer Dark Mode](https://github.com/kai-commits/kool-kids-snax/blob/master/docs/readme-preview/Customer%20Dark%20Mode.gif)
 
 ## Dependencies
 
