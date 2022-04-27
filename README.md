@@ -34,7 +34,10 @@ To run the following project on your local machine, please follow the steps belo
 ### Restaurant view
 ![Admin View](https://github.com/kai-commits/kool-kids-snax/blob/master/docs/readme-preview/Admin%20Order.gif)
 
+### Restaurant - Add new item
 ![Admin Add Item](https://github.com/kai-commits/kool-kids-snax/blob/master/docs/readme-preview/Admin%20Add%20Item.png)
+
+### Dark Mode
 ![Customer Dark Mode](https://github.com/kai-commits/kool-kids-snax/blob/master/docs/readme-preview/Customer%20Dark%20Mode.gif)
 
 ## Dependencies
